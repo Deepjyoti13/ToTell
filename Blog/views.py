@@ -3,3 +3,6 @@ from django.shortcuts import render, HttpResponse
 # Create your views here.
 def home(request):
     return render(request, "blog/home.html")
+    
+def category(request):
+    return render(request, "blog/category.html")
