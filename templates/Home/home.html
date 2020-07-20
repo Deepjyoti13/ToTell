@@ -1,34 +1,6 @@
+{% extends 'Home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TOTELL EXPRESS | Home</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-    />
-    <link rel = "icon" href =  "{% static 'img/totell-e1559974619203.png' %}" 
-        type = "image/x-icon"> 
-    
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-    />
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <script
-      src="https://kit.fontawesome.com/a480d15915.js"
-      crossorigin="anonymous"
-    ></script>
-    <style></style>
-  </head>
-  <body>
+{% block body %}
     <!-- Start your project here-->
 <div class="container-fluid bg-dark">
   <a href="">
@@ -134,47 +106,7 @@
       </div>
     </section>
    
-    <!--Navbar-->
-    
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color " id="a">
-      <button class="navbar-toggler btn" id="mobilemenu" type="button" data-toggle="collapse" data-target="#navbarnav">
-        <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>                
-      </button>
-      <div class="collapse navbar-collapse" id="navbarnav">
-        <img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" />
-        <ul class="navbar-nav m-auto p-2">
-          <li class="nav-item px-3 active">
-            <a href="#" class="nav-link">SNEAK-PEAK</a>
-          </li>
-          <li class="nav-item px-3">
-            <a href="#c" class="nav-link">EVENTS</a>
-          </li>
-          <li class="nav-item px-3">
-            <a href="#d" class="nav-link">LIFESTYLE</a>
-          </li>
-          <li class="nav-item px-3">
-            <a href="#e" class="nav-link"> TRENDS</a>
-          </li>
-          <li class="nav-item px-3">
-            <a id="wwu" href="#e" class="nav-link"><p style="margin: 0 10px 0 10px;padding: 0;color: white;font-weight: 500;">WRITE WITH US</p></a>
-          </li>
-        </ul>
-
-        <div class="container row" id="icon2nav">
-          <p style="font-weight: 600;">Follow us</p>
-          <div class="row" id="iconrowbot">
-            <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
-            <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
-            <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
-            <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
-  
-            
-            
-          </div>
-        </div>
-      </div>
-    </nav>
-  
+    {%  include 'Home/nav.html' %}
     
 <!--news here-->
 
@@ -666,14 +598,4 @@
       <p class="lead" id="foot">&copy;Copyright 2020,All Rights Reserved</p>
     </footer>
     <!-- End your project here-->
-  </body>
-  <script>
-    $(".carousel").carousel({
-      interval: 5000,
-      pause: "hover",
-    });
-  </script>
-  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}></script>
-  <script type="text/javascript"></script>
-  <script src="{% static 'index.js' %}></script>
-</html>
+{% endblock body %}
