@@ -1,200 +1,29 @@
+{% extends 'Blog/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TOTELL EXPRESS | Sneakpeek</title>
-    <link rel="icon" href="" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
-    />
+{% block body %}
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-    />
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/category.css' %}" />
-    <script
-      src="https://kit.fontawesome.com/a480d15915.js' %}
-      crossorigin="anonymous"
-    ></script>
-    <style></style>
-  </head>
-  <body>
-    <!-- Start your project here-->
+<!--breadcrumb-->
+<div class="container mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Sneakpeak</a></li>
 
-    {%  include 'Blog/nav-category.html' %}
-
-    <!--breadcrumb-->
-    <div class="container mt-5">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Sneakpeak</a></li>
-          
-        </ol>
-      </nav>
-    </div>
-    <!--ARTICAL Start-->
-    <section>
-      <div class="container mt-3">
-        
-        <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i class="fas fa-eye mr-2"></i>SNEAKPEEK</h3>
-        
-
-      </div>
-    </section>
-    <!--ARTICAL Start-->
-    <section class="container p-1 text-center bg-dark mt-2" >
-
-      <div class="container mt-3 " id="ad">
-        <div class="row">
-          <div class="col">
-            <h3 class="display-3  p-3">AD</h3>
-          </div>
-        </div>
-    </section>
-<!--writer 1-->
-    <section>
-      <div class="container mt-3">
-        
-        <h3 class="display-5" id="A-heading">FEATURED IN SNEAKPEAK</h3>
-        
-
-      </div>
-    </section>
-
-    <!--Big header-->
-
-    <div class="container">
-<div class="row">
-  <div class="col-md-12">
-
-    <div class="card text-center" id="trendcards">
-      <div class="card-body " id="big">
-        <p class="h2">Header</p>
-        <p>5 minute read</p>
-      </div>
-    </div>
-  </div>
+    </ol>
+  </nav>
 </div>
+<!--ARTICAL Start-->
+<section>
+  <div class="container mt-3">
 
-    </div>
+    <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i
+        class="fas fa-eye mr-2"></i>SNEAKPEEK</h3>
 
-<!--headings 2-->
 
-<section class=" p-4" id="trending">
-  <div class="container">
-
- 
-    <div class="row extend-sm" >
-      <div class="col-md-3" >
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-          <div class="card text-center" id="trendcards">
-            <div class="" id="z">
-              <p class="h2">Header</p>
-              <p>5 minute read</p>
-            </div>
-          </div>
-        </div>
-     
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
-<!---->
-
-    <!--Ad-->
-
-    <section class="container p-1 text-center bg-dark mt-2" >
-
-        <div class="container mt-3 " id="ad">
-          <div class="row">
-            <div class="col">
-              <h3 class="display-3  p-3">AD</h3>
-            </div>
-          </div>
-      </section>
-     
-    
-
-<!--headings 2-->
-
-<section class=" p-4" id="trending">
-    <div class="container">
-
-   
-      <div class="row extend-sm" >
-        <div class="col-md-3" >
-          <div class="card text-center" id="trendcards">
-            <div class="" id="z">
-              <p class="h2">Header</p>
-              <p>5 minute read</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center" id="trendcards">
-              <div class="" id="z">
-                <p class="h2">Header</p>
-                <p>5 minute read</p>
-              </div>
-            </div>
-          </div>
-       
-        <div class="col-md-3">
-          <div class="card text-center" id="trendcards">
-            <div class="" id="z">
-              <p class="h2">Header</p>
-              <p>5 minute read</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card text-center" id="trendcards">
-            <div class="" id="z">
-              <p class="h2">Header</p>
-              <p>5 minute read</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!---->
-<!--Ad-->
-
-
-<section class="container p-1 text-center bg-dark mt-2" >
+<!--ARTICAL Start-->
+<section class="container p-1 text-center bg-dark mt-2">
 
   <div class="container mt-3 " id="ad">
     <div class="row">
@@ -203,134 +32,150 @@
       </div>
     </div>
 </section>
- 
-  <!--footer-->
+<!--writer 1-->
+<section>
+  <div class="container mt-3">
 
-   <!--quick links-->
+    <h3 class="display-5" id="A-heading">FEATURED IN SNEAKPEAK</h3>
 
-   
-   <div class="container-fluid mt-3 " id="red">
-    <div class="container">
-    <div class="row" >
-    
-    
-         <div class="col-md-7" >
-         <h6 class="display-6 mt-3" style="font-weight: 700;"vs>Recommended <!--span class="badge badge-dark bg-dark">Dark</span> --></h6>
-         <div class=" " id="dus">
-         <div class="row">
-         
-         <!--xx-->
-         <div class="col-md-3" >
-          <div class="card text-center" id="trendcards2">
-            <div class="" id="z2">
-              <p class="h2 ml-2">Header</p>
-              <p class="ml-2">5 minute read</p>
-            </div>
+
+  </div>
+</section>
+
+<!--Big header-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card text-center" id="trendcards">
+        <div class="card-body " id="big">
+          <p class="h2">Header</p>
+          <p>5 minute read</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--headings 2-->
+
+<section class=" p-4" id="trending">
+  <div class="container">
+
+
+    <div class="row extend-sm">
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
           </div>
         </div>
-         <div class="col-md-3" >
-          <div class="card text-center" id="trendcards2">
-            <div class="" id="z2">
-              <p class="h2 ml-2">Header</p>
-              <p class="ml-2">5 minute read</p>
-            </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
           </div>
         </div>
-         <div class="col-md-3" >
-          <div class="card text-center" id="trendcards2">
-            <div class="" id="z2">
-              <p class="h2 ml-2">Header</p>
-              <p class="ml-2">5 minute read</p>
-            </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
           </div>
         </div>
-         <!--xx-->
-    
-    
-         </div>
-         </div>
-         </div>
-    <div class="col-md-5" id="quicklink" >
-      <h6 class="display-6 mt-3" style="font-weight: 700;" >Quick Links</h6>
-      <a  class="text-dark" href="#"><p>Sneak Peak</p> </a>
-      <a  class="text-dark" href="#"><p>Life Cycle</p></a>
-      <a  class="text-dark" href="#"><p>Events</p></a>
-      <a class="text-dark" href="#"><p>Trending</p></a>      
-    </div>
-    
-    
-    
-          
-    
-    </div>
-    <div class="row" style="padding-bottom: 50px;padding-top: 50px;" >
-    
-      
-           <div class="col-md-7" id="logogar">
-           <img src="{% static 'img/totell-e1559974619203.png' %}" id="logo3" alt="">
-           </div>
-           <div class="col-md-5" id="iconsbot">
-            <h6 class="display-6 mt-3" style="font-weight: 700;" >Follow us</h6>
-            <div class="row" id="iconrowbot">
-              <a class="col-2 m-1" href="" ><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
-              <a class="col-2 m-1" href="" ><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
-              <a class="col-2 m-1" href="" ><img id="socialicon" src="{% static 'img/icons8-play-button.svg' %}" alt=""></a>
-              <a class="col-2 m-1" href="" ><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
-              <a class="col-2 m-1" href="" ><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
-    
-              
-              
-            </div>
-           </div>
-      
-      
-      
-      
-            
-      
       </div>
-      <div class="container  mt-0">
-        <div class="col-md-2">
-
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
+          </div>
         </div>
-        <div class="col-md-12 row pb-4 m-0" >
-          
-          <a href="" class="col-md-3 text-center" ><p id="tnc" style="font-weight: 700;color: #000;">About us</p></a>
-          <a href="" class="col-md-3 text-center" ><p id="tnc" style="font-weight: 700;color: #000;">Know who we are</p></a>
-          <a href="" class="col-md-3 text-center" ><p id="tnc" style="font-weight: 700;color: #000;">Terms & conditions</p></a>
-          <a href="" class="col-md-3 text-center" ><p id="tnc" style="font-weight: 700;color: #000;">Advertise with us</p></a>
-        
-       
-        
       </div>
-      <div class="col-md-2">
-
-      </div>
-      </div>
-      
-    
-    
-    
     </div>
+  </div>
+</section>
+<!---->
+
+<!--Ad-->
+
+<section class="container p-1 text-center bg-dark mt-2">
+
+  <div class="container mt-3 " id="ad">
+    <div class="row">
+      <div class="col">
+        <h3 class="display-3  p-3">AD</h3>
+      </div>
     </div>
-    
-    
-    <!--footer-->
-    <footer class="bg-dark text-center " style="padding-bottom: 5px;padding-top: 5px;">
-      <p class="lead" id="foot">&copy;Copyright 2020,All Rights Reserved</p>
-    </footer>
-    
+</section>
 
-    <!-- End your project here-->
 
-    
-  </body>
-  <script>
-    $(".carousel").carousel({
-      interval: 5000,
-      pause: "hover",
-    });
-  </script>
-  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
-  <script src="{% static 'index.js' %}></script>
-</html>
+
+<!--headings 2-->
+
+<section class=" p-4" id="trending">
+  <div class="container">
+
+
+    <div class="row extend-sm">
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card text-center" id="trendcards">
+          <div class="" id="z">
+            <p class="h2">Header</p>
+            <p>5 minute read</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!---->
+<!--Ad-->
+
+
+<section class="container p-1 text-center bg-dark mt-2">
+
+  <div class="container mt-3 " id="ad">
+    <div class="row">
+      <div class="col">
+        <h3 class="display-3  p-3">AD</h3>
+      </div>
+    </div>
+</section>
+
+<!--footer-->
+
+
+{% endblock body %}

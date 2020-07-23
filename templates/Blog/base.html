@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>TOTELL EXPRESS</title>
+    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/article.css' %}" />
+    <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
+    <style>
+        #mobmen {
+            background-image: url({% static 'img/button.svg' %});
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start your project here-->
+
+    {% include 'Blog/nav-category.html' %}
+
+    {% block body %}
+
+    {% endblock body %}
+    <!--quick links-->
+
+
+<div class="container-fluid mt-3 " id="red">
+    <div class="container">
+      <div class="row">
+  
+  
+        <div class="col-md-7">
+          <h6 class="display-6 mt-3" style="font-weight: 700;" vs>Recommended
+            <!--span class="badge badge-dark bg-dark">Dark</span> -->
+          </h6>
+          <div class=" " id="dus">
+            <div class="row">
+  
+              <!--xx-->
+              <div class="col-md-3">
+                <div class="card text-center" id="trendcards2">
+                  <div class="" id="z2">
+                    <p class="h2 ml-2">Header</p>
+                    <p class="ml-2">5 minute read</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card text-center" id="trendcards2">
+                  <div class="" id="z2">
+                    <p class="h2 ml-2">Header</p>
+                    <p class="ml-2">5 minute read</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card text-center" id="trendcards2">
+                  <div class="" id="z2">
+                    <p class="h2 ml-2">Header</p>
+                    <p class="ml-2">5 minute read</p>
+                  </div>
+                </div>
+              </div>
+              <!--xx-->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5" id="quicklink">
+          <h6 class="display-6 mt-3" style="font-weight: 700;">Quick Links</h6>
+          <a class="text-dark" href="#">
+            <p>Sneak Peak</p>
+          </a>
+          <a class="text-dark" href="#">
+            <p>Life Cycle</p>
+          </a>
+          <a class="text-dark" href="#">
+            <p>Events</p>
+          </a>
+          <a class="text-dark" href="#">
+            <p>Trending</p>
+          </a>
+        </div>
+      </div>
+      <div class="row" style="padding-bottom: 100px;padding-top: 50px;">
+        <div class="col-md-7" id="logogar">
+          <img src="{% static 'img/totell-e1559974619203.png' %}" id="logo3" alt="">
+        </div>
+        <div class="col-md-5" id="iconsbot">
+          <h6 class="display-6 mt-3" style="font-weight: 700;">Follow us</h6>
+          <div class="row" id="iconrowbot">
+            <a class="col-2 m-1" href=""><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
+            <a class="col-2 m-1" href=""><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
+            <a class="col-2 m-1" href=""><img id="socialicon" src="{% static 'img/icons8-play-button.svg' %}" alt=""></a>
+            <a class="col-2 m-1" href=""><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
+            <a class="col-2 m-1" href=""><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="container  mt-0">
+        <div class="col-md-2">
+  
+        </div>
+        <div class="col-md-12 row pb-4 m-0">
+  
+          <a href="" class="col-md-3 text-center">
+            <p id="tnc" style="font-weight: 700;color: #000;">About us</p>
+          </a>
+          <a href="" class="col-md-3 text-center">
+            <p id="tnc" style="font-weight: 700;color: #000;">Know who we are</p>
+          </a>
+          <a href="" class="col-md-3 text-center">
+            <p id="tnc" style="font-weight: 700;color: #000;">Terms & conditions</p>
+          </a>
+          <a href="" class="col-md-3 text-center">
+            <p id="tnc" style="font-weight: 700;color: #000;">Advertise with us</p>
+          </a>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!--footer-->
+  <footer class="bg-dark text-center " style="padding-bottom: 5px;padding-top: 5px;">
+    <p class="lead" id="foot">&copy;Copyright 2020,All Rights Reserved</p>
+  </footer>
+  
+  
+</body>
+<script>
+    $(".carousel").carousel({
+        interval: 5000,
+        pause: "hover",
+    });
+</script>
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<script type="text/javascript"></script>
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>
