@@ -1,10 +1,10 @@
 {% load static %}
 
 <!--Navbar-->
-    
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color " id="a">
   <button class="navbar-toggler btn" id="mobilemenu" type="button" data-toggle="collapse" data-target="#navbarnav">
-    <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>                
+    <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarnav">
     <img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" />
@@ -22,22 +22,30 @@
         <a href="#e" class="nav-link"> TRENDS</a>
       </li>
       <li class="nav-item px-3">
-        <a id="wwu" href="#e" class="nav-link"><p style="margin: 0 10px 0 10px;padding: 0;color: white;font-weight: 500;">WRITE WITH US</p></a>
+        <a id="wwu" href="{% url 'writewithus' %}" class="nav-link">
+          <p style="margin: 0 10px 0 10px;padding: 0;color: white;font-weight: 500;">WRITE WITH US</p>
+        </a>
       </li>
+      {% if user.is_authenticated %}
+      <li>Hello, {{user.username}}</li>
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+      <li><a href="{% url 'register' %}">Register</a></li>
+      <li><a href="{% url 'login' %}">Log In</a></li>
+      {% endif %}
     </ul>
 
     <div class="container row" id="icon2nav">
       <p style="font-weight: 600;">Follow us</p>
       <div class="row" id="iconrowbot">
-        <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
-        <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
-        <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
-        <a class="col-2" href="" ><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
+        <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
+        <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
+        <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
+        <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
 
-        
-        
+
+
       </div>
     </div>
   </div>
 </nav>
-

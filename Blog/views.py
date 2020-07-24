@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 def registerPage(request):
 	form = CreateUserForm()
 	if request.method == 'POST':
-		form = CreateUserForm(request.POST)
+		form = CreateUserForm(request.POST, request.FILES)
 		if form.is_valid():
 			user = form.save()
 			username = form.cleaned_data.get('username')
@@ -62,6 +62,20 @@ def home(request):
     context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended}
     print(latest1)
     return render(request, "Home/home.html", context)
+
+def writewithus(request):
+	form = PostForm()
+	if request.method == "POST":
+		form = PostForm(request.POST, request.FILES)
+		print("Hi")
+		if form.is_valid():
+			print("Hello")
+			form.save()
+			if form.save():
+				print("HEY")
+			return redirect('/')
+	context = {'form':form}
+	return render(request, 'Blog/writewithus.html', context)
 
 def category(request):
     return render(request, "Blog/category.html")

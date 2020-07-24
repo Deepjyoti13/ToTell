@@ -14,3 +14,9 @@ class WriterForm(ModelForm):
 		model = Writer
 		fields = '__all__'
 		exclude = ['user']
+
+class PostForm(ModelForm):
+	class Meta:
+		model = Post
+		fields = '__all__'
+		exclude = ['timestamp', 'approve', 'recommend']

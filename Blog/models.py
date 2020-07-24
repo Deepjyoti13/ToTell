@@ -31,7 +31,7 @@ class Post(models.Model):
     title = models.CharField(max_length=25)
     cover = models.ImageField(upload_to='Blog Image')
     content = models.TextField()
-    author = models.ForeignKey(Writer, on_delete=models.CASCADE)
+    author = models.OneToOneField(Writer, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)
