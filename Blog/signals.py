@@ -11,7 +11,7 @@ def writer_profile(sender, instance, created, **kwargs):
 		instance.groups.add(group)
 		Writer.objects.create(
 			user=instance,
-			name=instance.username,
+			username=instance.username,
 			email=instance.email,
 			)
 		print('Profile created!')

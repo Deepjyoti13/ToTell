@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 class Writer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.TextField()
     username = models.CharField(max_length=15, unique=True)
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField(upload_to = 'Bloggers')
@@ -18,7 +17,7 @@ class Writer(models.Model):
     facebook = models.URLField(unique=True, null=True)
 
     def __str__(self):
-        return self.name + ' , aka,  ' + self.username
+        return self.username
 
 class Post(models.Model):
     blogChoice = (
@@ -31,11 +30,11 @@ class Post(models.Model):
     title = models.CharField(max_length=25)
     cover = models.ImageField(upload_to='Blog Image')
     content = models.TextField()
-    author = models.OneToOneField(Writer, on_delete=models.CASCADE)
+    username = models.ForeignKey(Writer, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)
     time = models.IntegerField()
 
     def __str__(self):
-        return self.title + ' by ' + self.author
+        return self.title

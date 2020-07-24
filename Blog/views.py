@@ -10,6 +10,16 @@ from django.contrib.auth import authenticate, login, logout
 # def home(request):
 #     return render(request, "Home/home.html")
 
+def home(request):
+    allPosts = Post.objects.filter(approve=True)
+    latest1 = allPosts[0:1]
+    latest2 = allPosts[1:2]
+    latest3 = allPosts[2:3]
+    recommended = allPosts.filter(recommend=True)[:3]
+    context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended}
+    print(len(allPosts))
+    return render(request, "Home/home.html", context)
+
 def registerPage(request):
 	form = CreateUserForm()
 	if request.method == 'POST':
@@ -53,15 +63,6 @@ def accountSettings(request):
 	context = {'form':form}
 	return render(request, 'Home/account_settings.html', context)
     
-def home(request):
-    allPosts = Post.objects.filter(approve=True)
-    latest1 = allPosts[0:1]
-    latest2 = allPosts[1:2]
-    latest3 = allPosts[2:3]
-    recommended = allPosts.filter(recommend=True)[:3]
-    context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended}
-    print(latest1)
-    return render(request, "Home/home.html", context)
 
 def writewithus(request):
 	form = PostForm()
@@ -70,10 +71,13 @@ def writewithus(request):
 		print("Hi")
 		if form.is_valid():
 			print("Hello")
+			# form.cleaned_data.get('title') = 'Hahaha'
 			form.save()
 			if form.save():
 				print("HEY")
-			return redirect('/')
+				return redirect('/')
+		else:
+			print (form.errors.as_data())
 	context = {'form':form}
 	return render(request, 'Blog/writewithus.html', context)
 
