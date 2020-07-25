@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
@@ -65,10 +66,26 @@ def accountSettings(request):
     
 
 def writewithus(request):
-	form = PostForm()
+	# PostFormSet = inlineformset_factory(Writer, Post, fields=('blogType', 'title', 'cover', 'content', 'time'), extra=10 )
+	writer = request.user
+	# form = PostForm(instance=writer)
+	# #form = OrderForm(initial={'customer':customer})
+	# if request.method == 'POST':
+	# 	#print('Printing POST:', request.POST)
+	# 	form = PostForm(request.POST)
+	# 	# formset = PostFormSet(request.POST, instance=writer)
+	# 	if form.is_valid():
+	# 		print(form.get('title'))
+	# 		form.save()
+	# 		return redirect('/')
+	# context = {'form':form, 'writer':writer}
+	# return render(request, 'Blog/writewithus.html', context)
+
+	form = PostForm(initial={'username': request.user.username})
+	form.fields["username"].initial = request.user.username
+	print(form)
 	if request.method == "POST":
 		form = PostForm(request.POST, request.FILES)
-		print("Hi")
 		if form.is_valid():
 			print("Hello")
 			# form.cleaned_data.get('title') = 'Hahaha'

@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 class Writer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    username = models.CharField(max_length=15, unique=True)
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField(upload_to = 'Bloggers')
     bio = models.TextField()
@@ -17,7 +16,7 @@ class Writer(models.Model):
     facebook = models.URLField(unique=True, null=True)
 
     def __str__(self):
-        return self.username
+        return self.user.username
 
 class Post(models.Model):
     blogChoice = (
