@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.conf import settings
 # Create your models here.
 
 class Writer(models.Model):
@@ -29,11 +29,12 @@ class Post(models.Model):
     title = models.CharField(max_length=25)
     cover = models.ImageField(upload_to='Blog Image')
     content = models.TextField()
-    username = models.ForeignKey(Writer, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)
     time = models.IntegerField()
+    post_writer = models.ForeignKey(Writer,null=True,on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.title

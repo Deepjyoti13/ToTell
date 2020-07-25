@@ -3,89 +3,104 @@
 {% block body %}
 
 
-  <!--breadcrumb-->
-  <div class="container mt-5">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Write For Us</a></li>
+<!--breadcrumb-->
+<div class="container mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Write For Us</a></li>
 
-      </ol>
-    </nav>
+    </ol>
+  </nav>
+</div>
+<!--ARTICAL Start-->
+<section>
+  <div class="container mt-3">
+
+    <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i
+        class="fas fa-pen mr-2"></i>WRITE FOR US</h3>
+
+
   </div>
-  <!--ARTICAL Start-->
-  <section>
-    <div class="container mt-3">
+</section>
+<!--ARTICAL Start-->
 
-      <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i
-          class="fas fa-pen mr-2"></i>WRITE FOR US</h3>
+<!--writer 1-->
+<section>
+  <div class="container mt-3">
+
+    <h3 class="display-5" id="A-heading">Rules and regulations</h3>
+    <p>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
+    <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
+    <p>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
+    <p>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
+    <p>5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
+    <p>6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
+      totam? Hic, molestias porro!</p>
 
 
+  </div>
+  <div class="container mt-3">
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <h3 class="disply-3">Fill this Up</h3>
+
+        <form class="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.management_form }}
+          <!-- {% for field in form %}
+          
+          {{field}}
+
+          <hr>
+          {% endfor %} -->
+          {{form.blogType}}
+          <br>
+          {{form.title}}
+          <br>
+          {{form.cover}}
+
+          <br>
+          {{form.content}}
+          <br>
+          {{form.time}}
+          <br>
+          {{form.post_writer.as_hidden}}
+          <br>
+          <div class="form-check mt-3">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">I agree to the totellexpress <a href="">Terms of
+                service</a> and <a href="">Privacy Policy.</a></label>
+          </div>
+          <button type="submit" class="btn btn-dark mt-3">Send</button>
+        </form>
+      </div>
     </div>
-  </section>
-  <!--ARTICAL Start-->
+    <section class="container p-1 text-center bg-dark mt-2">
 
-  <!--writer 1-->
-  <section>
-    <div class="container mt-3">
+      <div class="container mt-3 " id="ad">
 
-      <h3 class="display-5" id="A-heading">Rules and regulations</h3>
-      <p>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-      <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-      <p>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-      <p>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-      <p>5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-      <p>6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dicta at, atque commodi fuga omnis alias
-        totam? Hic, molestias porro!</p>
-
-
-    </div>
-    <div class="container mt-3">
-
-      <div class="row">
-        <div class="col-md-12">
-
-          <h3 class="disply-3">Fill this Up</h3>
-
-          <form class="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.management_form }}
-            {% for field in form %}
-              {{field}}
-              <hr>
-            {% endfor %}
-            <div class="form-check mt-3">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-              <label class="form-check-label" for="exampleCheck1">I agree to the totellexpress <a href="">Terms of
-                  service</a> and <a href="">Privacy Policy.</a></label>
-            </div>
-            <button type="submit" class="btn btn-dark mt-3">Send</button>
-          </form>
+        <div>
+          <h5 style="text-align: left;font-weight: 800;">MESSAGE</h5>
+          <p style="text-align: left;font-weight: 500;">Your content will be reviewed and our team will contact you
+            soon.</p>
         </div>
       </div>
-      <section class="container p-1 text-center bg-dark mt-2">
+    </section>
+  </div>
+</section>
 
-        <div class="container mt-3 " id="ad">
-
-          <div>
-            <h5 style="text-align: left;font-weight: 800;">MESSAGE</h5>
-            <p style="text-align: left;font-weight: 500;">Your content will be reviewed and our team will contact you
-              soon.</p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <!--Big header-->
+<!--Big header-->
 
 
 
-  <!--headings 2-->
+<!--headings 2-->
 
-  {% endblock body %}
+{% endblock body %}
