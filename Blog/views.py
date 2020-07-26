@@ -66,34 +66,18 @@ def accountSettings(request):
     
 
 def writewithus(request):
-	# PostFormSet = inlineformset_factory(Writer, Post, fields=('blogType', 'title', 'cover', 'content', 'time'), extra=10 )
-	# writer = request.user
-	# form = PostForm(instance=writer)
-	# #form = OrderForm(initial={'customer':customer})
-	# if request.method == 'POST':
-	# 	#print('Printing POST:', request.POST)
-	# 	form = PostForm(request.POST)
-	# 	# formset = PostFormSet(request.POST, instance=writer)
-	# 	if form.is_valid():
-	# 		print(form.get('title'))
-	# 		form.save()
-	# 		return redirect('/')
-	# context = {'form':form, 'writer':writer}
-	# return render(request, 'Blog/writewithus.html', context)
 	if request.user.is_authenticated:
 		writer = request.user
 		print(writer)
 		print('****')
 		form = PostForm(initial={'post_writer': Writer.objects.get(user=writer)})
-		# form.fields["username"].initial = writer
-		# form.username=writer
-		# form.post_writer="Gaurav"
 		print(form)
+	else:
+		return HttpResponse("<h1>Reigster or login first</h1>")
 	if request.method == "POST":
 		form = PostForm(request.POST, request.FILES)
 		if form.is_valid():
 			print("Hello")
-			# form.cleaned_data.get('title') = 'Hahaha'
 			form.save()
 			if form.save():
 				print("HEY")
@@ -110,4 +94,3 @@ def blog(request, pk):
     post = Post.objects.get(id=pk)
     context = {'post':post}
     return render(request, "Blog/article.html", context)
-
