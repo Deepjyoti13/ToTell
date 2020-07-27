@@ -13,12 +13,12 @@ from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     allPosts = Post.objects.filter(approve=True)
-    latest1 = allPosts[0:1]
-    latest2 = allPosts[1:2]
-    latest3 = allPosts[2:3]
+    latest1 = allPosts[len(allPosts)-1:len(allPosts)]
+    latest2 = allPosts[len(allPosts)-2:len(allPosts)-1]
+    latest3 = allPosts[len(allPosts)-3:len(allPosts)-2]
     recommended = allPosts.filter(recommend=True)[:3]
     context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended}
-    print(len(allPosts))
+    print(allPosts[1].title)
     return render(request, "Home/home.html", context)
 
 def registerPage(request):
@@ -55,14 +55,14 @@ def logoutUser(request):
 
 
 def accountSettings(request):
-	customer = request.user.customer
+	customer = request.user.writer
 	form = WriterForm(instance=customer)
 	if request.method == 'POST':
 		form = WriterForm(request.POST, request.FILES,instance=customer)
 		if form.is_valid():
 			form.save()
 	context = {'form':form}
-	return render(request, 'Home/account_settings.html', context)
+	return render(request, 'Blog/account_settings.html', context)
     
 
 def writewithus(request):
@@ -94,3 +94,9 @@ def blog(request, pk):
     post = Post.objects.get(id=pk)
     context = {'post':post}
     return render(request, "Blog/article.html", context)
+
+def profile(request, pk):
+	writer = Writer.objects.get(id=pk)
+	posts = writer.tags.all()
+	context = {'writer':writer, 'posts':posts}
+	return render(request, 'Home/profile.html', context)

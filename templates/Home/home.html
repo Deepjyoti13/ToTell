@@ -7,15 +7,11 @@
     <img src="{% static 'img/totell-e1559974619203.png' %}" id="logo" alt="">
   </a>
   <nav class="navbar navbar-light fixed-top navbar-expand-sm" id="topnav">
-
     <form class="form-inline">
       <input class="form mr-sm-2" id="fom" type="search" placeholder="Search" aria-label="Search">
-
     </form>
   </nav>
-
 </div>
-
 <!--carousel-->
 <section
   style="background-image: url(https://images.unsplash.com/photo-1464457312035-3d7d0e0c058e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;height: auto;">
@@ -158,9 +154,6 @@
 
   <section class=" p-4" id="trending">
     <div class="container">
-
-
-
       <div class="row extend-sm">
         <div class="col-md-4">
           <div class="card text-center"
@@ -260,15 +253,15 @@
       <div class="col-md-4">
         {% if latest2 %}
         {% for latest2 in latest2 %}
-            
-        <a href="">
+
+        <a href="{% url 'blog' latest2.id %}">
 
           <div class="card-text-center">
-            <div class="card body " id="latest1" style="background: url({{latest2.cover.pic}});
+            <div class="card body " id="latest1" style="background: url({{latest2.cover.url}});
                 background-size: cover;">
               <div class="" id="latest11">
                 <h2>{{latest2.title}}</h2>
-                <p>by {{latest2.author}}</p>
+                <p>by {{latest2.post_writer}}</p>
               </div>
 
             </div>
@@ -281,8 +274,8 @@
         <div class="row mt-3">
           {% if latest3 %}
           {% for latest3 in latest3 %}
-              
-          <a href="">
+
+          <a href="{% url 'blog' latest3.id %}">
 
             <div class="col-12 ">
               <div class="card-text-center">
@@ -290,7 +283,7 @@
                     background-size: cover;">
                   <div class="" id="latest11">
                     <h2>{{latest3.title}}</h2>
-                    <p>by {{latest3.author}}</p>
+                    <p>by {{latest3.post_writer}}</p>
                   </div>
 
                 </div>
@@ -306,13 +299,13 @@
       <div class="col-md-8 " id="">
         {% if latest1 %}
         {% for latest1 in latest1 %}
-        <a href="">
+        <a href="{% url 'blog' latest1.id %}">
           <div class="card-text-center">
             <div class="card body " id="latest3" style="background: url({{latest1.cover.url}});
                 background-size: cover;">
               <div class="" id="latest11">
                 <h2>{{latest1.title}}</h2>
-                <p>by {{latest1.author}}</p>
+                <p>by {{latest1.post_writer}}</p>
               </div>
 
             </div>
@@ -435,18 +428,18 @@
 
             <!--xx-->
             {% for rec in recommended %}
-              <div class="col-md-3">
-                <a href="">
-  
-                  <div class="card text-center" id="trendcards2" style="background: url({{rec.cover.url}});
+            <div class="col-md-3">
+              <a href="{% url 'blog' rec.id %}">
+
+                <div class="card text-center" id="trendcards2" style="background: url({{rec.cover.url}});
                background-size: cover;">
-                    <div class="" id="z2">
-                      <p class="h2 ml-2">{{rec.title}}</p>
-                      <p class="ml-2">{{rec.time}} minute read</p>
-                    </div>
+                  <div class="" id="z2">
+                    <p class="h2 ml-2">{{rec.title}}</p>
+                    <p class="ml-2">{{rec.time}} minute read</p>
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
+            </div>
             {% endfor %}
             <!--xx-->
           </div>

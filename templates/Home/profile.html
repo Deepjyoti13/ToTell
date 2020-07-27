@@ -1,0 +1,13 @@
+{{writer.user.username}}
+<img src={{writer.profile_pic.url}} />
+{{writer.bio}}
+{{writer.email}}
+{{writer.locality}}
+{{writer.state}}
+{{writer.country}}
+{{writer.instagram}}
+{{writer.linkedin}}
+{{writer.facebook}}
+{% for post in posts %}
+    {{post.title}}
+{% endfor %}

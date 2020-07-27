@@ -12,6 +12,8 @@ urlpatterns = [
     path('writewithus/', views.writewithus, name="writewithus"),
     path('category/', views.category, name="category"),
     path('blog/<str:pk>/', views.blog, name="blog"),
+    path('settings/', views.accountSettings, name="settings"),
+    path('profile/<str:pk>/', views.profile, name="profile"),
     path('reset_password/',
      auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),
      name="reset_password"),

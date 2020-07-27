@@ -23,12 +23,12 @@
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="{{ post.cover.url }}" class="card-img m-3" alt="..." />
+          <img src="{{ post.post_writer.profile_pic.url }}" class="card-img m-3" alt="..." />
         </div>
         <div class="col-md-8">
           <div class="card-body mt-2">
-            <h5 class="card-title">{{post.timestamp}}</h5>
-            <p class="card-text">by <span style="font-weight: 700;">{{post.author}}</span></p>
+            <h5 class="card-title">{{post.timestamp|date}}</h5>
+            <p class="card-text">by <span style="font-weight: 700;">{{post.post_writer}}</span></p>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       <div class="row extend-sm">
         <div class="col-md-4">
           <div class="card text-center"
-            style="background: url({{ post.cover.url }});background-size: cover;"
+            style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
             id="trendcards">
             <div class=" " id="zed">
 
@@ -132,65 +132,9 @@
 <!--article img 1 & para-->
 <div class="container mt-3">
   <img src="{{ post.cover.url }}" class="img-fluid" alt="Responsive image">
-  <p class="lead mt-3" id="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum tempora perspiciatis
-    omnis quos accusamus alias ducimus temporibus velit asperiores excepturi praesentium aliquid harum, a, facilis
-    voluptates placeat quo dolor doloribus debitis blanditiis veritatis dolorum corporis officiis! Pariatur officiis qui
-    soluta unde, vero, rem explicabo perspiciatis ex minima libero, et maxime impedit sunt vitae cupiditate voluptatum
-    eligendi voluptas nesciunt ipsum alias doloremque? Consequatur pariatur commodi expedita blanditiis fuga praesentium
-    veritatis asperiores ratione unde vitae deleniti animi aperiam mollitia, cumque iure quasi nam beatae inventore sunt
-    optio. Officia optio quidem maxime totam culpa, magnam, repellendus, a nihil doloribus expedita autem. Facere libero
-    consequatur soluta, quae vel provident ut iure aliquam? Vero explicabo possimus, sit atque perferendis, neque ex
-    reprehenderit pariatur necessitatibus quae placeat nihil et quibusdam. Ratione eum accusamus consequuntur voluptatum
-    unde adipisci laboriosam beatae inventore ipsum, modi, animi totam consectetur debitis officiis nemo blanditiis
-    deleniti obcaecati, quos architecto officia neque rem alias at. Necessitatibus quas perferendis aut ipsum laboriosam
-    consectetur fuga totam molestiae quasi consequatur dolores, modi officia excepturi ea illum nemo minus vero iste?
-    At, nesciunt. Esse explicabo voluptates nulla odio molestiae corporis quae est, quia iste laudantium aspernatur
-    nemo porro perspiciatis molestias eligendi libero obcaecati ab, excepturi cumque quisquam.</p>
 </div>
 <!--Ad-->
 
-
-<div id="bigadd">
-
-  <section class=" p-4" id="trending">
-    <div class="container">
-
-
-
-      <div class="row extend-sm">
-        <div class="col-md-4">
-          <div class="card text-center"
-            style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
-            id="trendcards">
-            <div class=" " id="zed">
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card text-center"
-            style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
-            id="trendcards">
-            <div class=" " id="zed">
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card text-center"
-            style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
-            id="trendcards">
-            <div class=" " id="zed">
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </section>
-</div>
 <!--1st ad-->
 
 
@@ -342,7 +286,7 @@
 <!---->
 
 <!--form-->
-<div class="container mt-3">
+<!-- <div class="container mt-3">
 
   <div class="row">
     <div class="col-md-12">
@@ -398,7 +342,7 @@
 
     </div>
   </section>
-</div>
+</div> -->
 
 <!--footer-->
 

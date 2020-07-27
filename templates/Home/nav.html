@@ -7,7 +7,7 @@
     <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarnav">
-    <img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" />
+    <a href="/"><img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" /></a>
     <ul class="navbar-nav m-auto p-2">
       <li class="nav-item px-3 active">
         <a href="#" class="nav-link">SNEAK-PEAK</a>
@@ -28,10 +28,11 @@
       </li>
       {% if user.is_authenticated %}
       <li>Hello, {{user.username}}</li>
-      <li><a href="{% url 'logout' %}">Logout</a></li>
+      <li><a href="{% url 'logout' %}">&nbsp &nbsp &nbsp Logout</a></li>
+      <li><a href="{% url 'settings' %}">&nbsp &nbsp &nbsp Settings</a></li>
       {% else %}
-      <li><a href="{% url 'register' %}">Register</a></li>
-      <li><a href="{% url 'login' %}">Log In</a></li>
+      <li><a href="{% url 'register' %}">&nbsp &nbsp &nbsp Register</a></li>
+      <li><a href="{% url 'login' %}">&nbsp &nbsp &nbsp Log In</a></li>
       {% endif %}
     </ul>
 
