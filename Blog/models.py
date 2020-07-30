@@ -14,6 +14,7 @@ class Writer(models.Model):
     instagram = models.URLField(unique=True, blank=True, null=True)
     linkedin = models.URLField(unique=True, blank=True, null=True)
     facebook = models.URLField(unique=True, blank=True, null=True)
+    date = models.DateField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -26,7 +27,7 @@ class Post(models.Model):
         ('Trends', 'Trends'),
     )
     blogType = models.CharField(max_length=25, choices=blogChoice, null=True)
-    title = models.CharField(max_length=25)
+    title = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='Blog Image')
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)

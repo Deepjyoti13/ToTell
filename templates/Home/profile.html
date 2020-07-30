@@ -1,13 +1,76 @@
-{{writer.user.username}}
-<img src={{writer.profile_pic.url}} />
-{{writer.bio}}
-{{writer.email}}
-{{writer.locality}}
-{{writer.state}}
-{{writer.country}}
-{{writer.instagram}}
-{{writer.linkedin}}
-{{writer.facebook}}
-{% for post in posts %}
-    {{post.title}}
-{% endfor %}
+{% extends 'Blog/base.html' %}
+{% load static %}
+{% block body %}
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,100&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<header>
+
+    <div class="container">
+
+        <div class="profile">
+
+            <div class="profile-image">
+
+                <img class="prof-pic" src="{{writer.profile_pic.url}}" alt="">
+
+            </div>
+            <div class="profile-user-settings">
+                <h1 class="profile-user-name">{{writer.user.username}}</h1>
+            </div>
+            <div class="profile-stats">
+
+                <ul>
+                    {% if writer.facebook %}
+                    <li><a href="{{writer.facebook}}"><span class="profile-stat-count"><img id="socialicon"
+                                    src="{% static 'img/icons8-facebook.svg' %}" alt=""></span></a></li>
+                    {% endif %}
+                    {% if writer.instagram %}
+                    <li><a href="{{writer.instagram}}"><span class="profile-stat-count"><img id="socialicon"
+                                    src="{% static 'img/icons8-instagram.svg' %}" alt=""></span></a></li>
+                    {% endif %}
+                    {% if writer.linkedin %}
+                    <li><a href="{{writer.linkedin}}"><span class="profile-stat-count"><img id="socialicon"
+                                    src="{% static 'img/icons8-linkedin.svg' %}" alt=""></span></a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+
+            <div class="profile-bio">
+                <p class="bio">{{writer.bio}}</p>
+                <p class="address">{{writer.locality}}, {{writer.state}}, {{writer.country}}</p>
+
+            </div>
+
+        </div>
+        <!-- End of profile section -->
+
+    </div>
+    <!-- End of container -->
+
+</header>
+<hr class="mr-5 ml-5">
+
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4">
+            <a href="{% url 'blog' post.id %}">
+                <div class="card-text-center">
+                    <div class="card body " id="latest3" style="background: url({{post.cover.url}});
+                    background-size: cover;">
+                        <div id="latest11">
+                            <h3>{{post.title}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- End of gallery -->
+</div>
+
+{% endblock body %}

@@ -1,25 +1,7 @@
+{% extends 'Blog/base.html' %}
 {% load static %}
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>TOTELL EXPRESS</title>
-<link rel="icon" href="" type="image/x-icon" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-<link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
-<link rel="stylesheet" href="{% static 'css/article.css' %}" />
-<script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
-<style>
-	.profile-pic {
-		max-width: 200px;
-		max-height: 200px;
-		margin: 0 auto;
-		border-radius: 50%;
-	}
-</style>
-{% include 'Blog/nav-category.html' %}
+{% block body %}
 
-<br>
 <div class="container mt-5">
 	<div class="row">
 		<div class="col-md-3">
@@ -28,17 +10,64 @@
 				<hr>
 				<h3 style="text-align: center">Account Settings</h3>
 				<hr>
-				<img class="profile-pic" src="{{request.user.customer.profile_pic.url}}">
+				<img class="profile-pic" src="{{request.user.writer.profile_pic.url}}">
 			</div>
 		</div>
 		<div class="col-md-9">
 			<div class="card card-body">
 				<form method="POST" action="" enctype="multipart/form-data">
 					{% csrf_token %}
-					{{form.as_p}}
-					<input class="btn btn-primary" type="submit" name="Update Information">
+					<div class="row">
+						<div class="col-md-12">
+							{{form.email}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.profile_pic}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.bio}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.locality}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.state}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.country}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.facebook}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.instagram}}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{form.linkedin}}
+						</div>
+					</div>
+					<input class="btn btn-primary" type="submit">
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+{% endblock %}

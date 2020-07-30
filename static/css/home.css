@@ -199,15 +199,15 @@ body {
   height: 100%;
   color: #fff;
 }
-#latest1 h2 {
+#latest1 h4 {
   font-size: 60px;
   font-weight: 800;
 }
-#latest2 h2 {
+#latest2 h4 {
   font-size: 40px;
   font-weight: 800;
 }
-#latest3 h2 {
+#latest3 h4 {
   font-size: 100px;
   font-weight: 800;
 }
@@ -447,9 +447,9 @@ ul li {
   #socialicon {
     width: 100%;
   }
-  #latest1 h2,
-  #latest2 h2,
-  #latest3 h2 {
+  #latest1 h4,
+  #latest2 h4,
+  #latest3 h4 {
     font-size: 40px;
   }
   #icon2nav {

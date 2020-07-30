@@ -23,51 +23,31 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-
         <a href="">
-
-          <img src="https://source.unsplash.com/1600x1600/?nature,water" alt="" id="a1" />
+          <img src="{{ r1.cover.url }}" alt="" id="a1" />
         </a>
         <div class="carousel-caption" id="carcap">
-          <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">Adjective</h5>
+          <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">{{ r1.post_writer }}</h5>
           <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-            Molestiae, repudiandae!
+            {{ r1.title }}
           </p>
-          <p>2 minutes read</p>
+          <p>{{ r1.time }}</p>
         </div>
       </div>
+      {% for rec in r2 %}    
       <div class="carousel-item">
         <a href="">
-
-          <img src="https://source.unsplash.com/1600x700/?nature,water" alt="" id="a1" />
+          <img src="{{ rec.cover.url }}" alt="" id="a1" />
         </a>
         <div class="carousel-caption" id="carcap">
-          <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">Adjective</h5>
+          <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">{{ rec.post_writer }}</h5>
           <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-            Molestiae, repudiandae!
+            {{ rec.title }}
           </p>
-          <p>2 minutes read</p>
+          <p>{{ rec.time }}</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <a href="">
-
-          <img src="https://source.unsplash.com/1600x700/?nature,water" alt="" id="a1" />
-        </a>
-        <div class="carousel-caption " id="carcap">
-          <h4 class="fancy display-1 font-weight-bold animated fadeInUp">Adjective</h4>
-          <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-            Molestiae, repudiandae!
-          </p>
-          <p>2 minutes read</p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <a class="carousel-control-prev" href="#b" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" id="carbut" aria-hidden="true"></span>
@@ -103,7 +83,7 @@
             <div class="card text-center" style="background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
           background-size: cover;" id="trendcards">
               <div class=" " id="z">
-                <p class="h2">heda</p>
+                <p class="h2">head</p>
                 <p>5 minute read</p>
               </div>
             </div>
@@ -115,7 +95,7 @@
             <div class="card text-center" style="background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
           background-size: cover;" id="trendcards">
               <div class=" " id="z">
-                <p class="h2">heda</p>
+                <p class="h2">head</p>
                 <p>5 minute read</p>
               </div>
             </div>
@@ -127,7 +107,7 @@
             <div class="card text-center" style="background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
           background-size: cover;" id="trendcards">
               <div class=" " id="z">
-                <p class="h2">heda</p>
+                <p class="h2">head</p>
                 <p>5 minute read</p>
               </div>
             </div>
@@ -139,7 +119,7 @@
             <div class="card text-center" style="background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
           background-size: cover;" id="trendcards">
               <div class=" " id="z">
-                <p class="h2">heda</p>
+                <p class="h2">head</p>
                 <p>5 minute read</p>
               </div>
             </div>
@@ -260,10 +240,9 @@
             <div class="card body " id="latest1" style="background: url({{latest2.cover.url}});
                 background-size: cover;">
               <div class="" id="latest11">
-                <h2>{{latest2.title}}</h2>
+                <h4>{{latest2.title}}</h4>
                 <p>by {{latest2.post_writer}}</p>
               </div>
-
             </div>
           </div>
         </a>
@@ -282,7 +261,7 @@
                 <div class="card body " id="latest2" style="background: url({{latest3.cover.url}});
                     background-size: cover;">
                   <div class="" id="latest11">
-                    <h2>{{latest3.title}}</h2>
+                    <h4>{{latest3.title}}</h4>
                     <p>by {{latest3.post_writer}}</p>
                   </div>
 
@@ -304,7 +283,7 @@
             <div class="card body " id="latest3" style="background: url({{latest1.cover.url}});
                 background-size: cover;">
               <div class="" id="latest11">
-                <h2>{{latest1.title}}</h2>
+                <h4>{{latest1.title}}</h4>
                 <p>by {{latest1.post_writer}}</p>
               </div>
 
@@ -313,8 +292,6 @@
         </a>
         {% endfor %}
         {% endif %}
-
-
       </div>
 
 
