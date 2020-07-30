@@ -34,11 +34,13 @@ class PostForm(ModelForm):
         model = Post
         fields = '__all__'
         exclude = ['timestamp', 'approve', 'recommend']
+    class Media:
+        js = ('js/tinyInject.js',)
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['blogType'].widget.attrs = {'class': 'form-control'}
         self.fields['title'].widget.attrs = {'class': 'form-control'}
         self.fields['cover'].widget.attrs = {'class': 'form-control'}
-        self.fields['content'].widget.attrs = {'class': 'form-control'}
+        self.fields['content'].widget.attrs = {'class': 'form-control', 'id': 'id_content'}
         self.fields['time'].widget.attrs = {'class': 'form-control'}

@@ -227,15 +227,11 @@
       Latest Posts
     </h3>
     <hr class="three">
-
     <div class="row  ">
-
       <div class="col-md-4">
         {% if latest2 %}
         {% for latest2 in latest2 %}
-
         <a href="{% url 'blog' latest2.id %}">
-
           <div class="card-text-center">
             <div class="card body " id="latest1" style="background: url({{latest2.cover.url}});
                 background-size: cover;">
@@ -248,14 +244,10 @@
         </a>
         {% endfor %}
         {% endif %}
-
-
         <div class="row mt-3">
           {% if latest3 %}
           {% for latest3 in latest3 %}
-
           <a href="{% url 'blog' latest3.id %}">
-
             <div class="col-12 ">
               <div class="card-text-center">
                 <div class="card body " id="latest2" style="background: url({{latest3.cover.url}});
@@ -264,7 +256,6 @@
                     <h4>{{latest3.title}}</h4>
                     <p>by {{latest3.post_writer}}</p>
                   </div>
-
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.timezone import now
+# from ckeditor_uploader.fields import RichTextUploadingField
 from Home.models import *
 
 # Create your models here.
@@ -33,6 +34,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='Blog Image')
     content = models.TextField()
+    # content = RichTextUploadingField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)

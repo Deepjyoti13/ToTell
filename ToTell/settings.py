@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Home',
     'Blog.apps.BlogConfig',
+    # 'ckeditor',
+    # 'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 MEDIA_URL = '/images/'
 

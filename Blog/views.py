@@ -92,8 +92,7 @@ def accountSettings(request):
 def writewithus(request):
     if request.user.is_authenticated:
         writer = request.user
-        form = PostForm(
-            initial={'post_writer': Writer.objects.get(user=writer)})
+        form = PostForm(initial={'post_writer': Writer.objects.get(user=writer)})
     else:
         return redirect("login")
     if request.method == "POST":
@@ -103,7 +102,7 @@ def writewithus(request):
             if form.save():
                 return redirect('/')
         else:
-            return redirect("login")
+            print(form.errors)
     context = {'form': form}
     return render(request, 'Blog/writewithus.html', context)
 
