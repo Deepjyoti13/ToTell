@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from Home.models import BlogComment
 from .models import *
 from .forms import *
 from django.forms import inlineformset_factory
@@ -77,7 +78,7 @@ def writewithus(request):
         form = PostForm(
             initial={'post_writer': Writer.objects.get(user=writer)})
     else:
-        return HttpResponse("<h1>Reigster or login first</h1>")
+        return redirect("login")
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -85,7 +86,7 @@ def writewithus(request):
             if form.save():
                 return redirect('/')
         else:
-            return HttpResponse("<h1>Fill correctly</h1>")
+            return redirect("login")
     context = {'form': form}
     return render(request, 'Blog/writewithus.html', context)
 
@@ -96,7 +97,8 @@ def category(request):
 
 def blog(request, pk):
     post = Post.objects.get(id=pk)
-    context = {'post': post}
+    comments = BlogComment.objects.filter(post=post)
+    context = {'post': post, 'comments':comments}
     return render(request, "Blog/article.html", context)
 
 

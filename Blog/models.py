@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.utils.timezone import now
+from Home.models import *
+
 # Create your models here.
 
 class Writer(models.Model):
@@ -39,3 +42,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+

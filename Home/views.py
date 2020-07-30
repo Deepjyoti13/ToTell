@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .models import *
 
@@ -24,3 +24,17 @@ def contact(request):
             data.save()
 
     return render(request, "Home/contact.html")
+
+def postComment(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            comment = request.POST.get("comment")
+            user = request.user
+            postID = request.POST.get("postID")
+            post = Post.objects.get(id = postID)
+            comment = BlogComment(comment=comment, user=user, post=post)
+            comment.save()
+            messages.success(request, "Your comment has been posted!")
+    else:
+        return redirect("login")
+    return redirect(f"/blog/{post.id}")

@@ -2,7 +2,6 @@
 {% load static %}
 {% block body %}
 
-
 <!--breadcrumb-->
 <div class="container mt-5">
   <nav aria-label="breadcrumb">
@@ -143,7 +142,7 @@
 
 
 
-<section class="container-fluid" id="carad">
+<!-- <section class="container-fluid" id="carad">
   <div class="carousel slide" id="b" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#b" data-slide-to="0" class="active"></li>
@@ -182,7 +181,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</section>
+</section> -->
 
 <!--article img 2 & para2-->
 
@@ -236,16 +235,41 @@
   </div>
 
 </div>
+
+<!-- Comments -->
+<br>
+<br>
+<div class="container">
+  <h2>Comments ({{comments.count}})</h2>
+  <form action="{% url 'postComment' %}" method="POST"> {% csrf_token %}
+    <div class="form-group">
+      <label for="comment">Post comment</label>
+      <input type="text" id="comment" class="form-control my-1" name="comment" placeholder="Enter your comment...">
+    </div>
+    <input type="hidden" name="postID" value="{{ post.id }}">
+    <input type="submit" class="btn btn-primary" name="submit" value="Comment">
+  </form>
+  {% for message in messages %}
+  {{message}}
+  {% endfor %}
+  {% for comment in comments %}
+  <div class="row my-3">
+    <div class="col-md-1"><img class="w-100 p-2" src="{{comment.user.writer.profile_pic.url}}"></div>
+    <div class="col-md-11"><b>{{comment.user.username}}</b> <small>on {{comment.timestamp}}</small><br>{{comment.comment}}</div>
+  </div>
+  <hr class="mr-5 ml-5">
+  {% endfor %}
+</div>
+<hr class="m-5">
+
 <!--more articles-->
 
 <section class=" p-4" id="trending">
   <div class="container">
     <h3 class="display-5" style="font-family: Roboto, sans-serif;font-weight: 700;">
-
       See more articles
     </h3>
     <hr class="three">
-    </hr>
 
     <div class="row extend-sm">
       <div class="col-md-3">
