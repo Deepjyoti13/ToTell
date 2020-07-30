@@ -13,6 +13,10 @@ from django.contrib.auth import authenticate, login, logout
 #     return render(request, "Home/home.html")
 
 def home(request):
+    if request.user.is_authenticated:
+        if not request.user.writer.bio:
+            messages.error(request, "Please fill in your details!")
+            return redirect("details")
     allPosts = Post.objects.filter(approve=True)
     latest1 = allPosts[len(allPosts)-1:len(allPosts)]
     latest2 = allPosts[len(allPosts)-2:len(allPosts)-1]
@@ -59,12 +63,25 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+def account_details(request):
+    writer = request.user.writer
+    form = WriterForm(instance=writer)
+    if request.method == 'POST':
+        form = WriterForm(request.POST, request.FILES, instance=writer)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request, "Kindly fill the details properly!")
+            return redirect("")
+    context = {'form': form}
+    return render(request, 'Home/account_details.html', context)
 
 def accountSettings(request):
-    customer = request.user.writer
-    form = WriterForm(instance=customer)
+    writer = request.user.writer
+    form = WriterForm(instance=writer)
     if request.method == 'POST':
-        form = WriterForm(request.POST, request.FILES, instance=customer)
+        form = WriterForm(request.POST, request.FILES, instance=writer)
         if form.is_valid():
             form.save()
             return redirect('/')

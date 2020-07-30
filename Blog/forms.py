@@ -19,14 +19,14 @@ class WriterForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(WriterForm, self).__init__(*args, **kwargs)
-        self.fields['email'].widget.attrs = {'class': 'form-control'}
-        self.fields['bio'].widget.attrs = {'class': 'form-control'}
-        self.fields['locality'].widget.attrs = {'class': 'form-control'}
-        self.fields['state'].widget.attrs = {'class': 'form-control'}
-        self.fields['country'].widget.attrs = {'class': 'form-control'}
-        self.fields['facebook'].widget.attrs = {'class': 'form-control'}
-        self.fields['linkedin'].widget.attrs = {'class': 'form-control'}
-        self.fields['instagram'].widget.attrs = {'class': 'form-control'}
+        self.fields['email'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['bio'].widget.attrs = {'class': 'form-control mb-3 mr-3', 'required': True}
+        self.fields['locality'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['state'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['country'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['facebook'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['linkedin'].widget.attrs = {'class': 'form-control mb-3 mr-3'}
+        self.fields['instagram'].widget.attrs = {'class': 'form-control mb-3 mr-3', 'required': True}
 
 
 class PostForm(ModelForm):

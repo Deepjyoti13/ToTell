@@ -16,7 +16,6 @@ def contact(request):
         data.subject = request.POST['subject']
         data.content = request.POST['content']
         print(data.name, data.email)
-        
         if(len(data.name)<6 or len(data.email)<10):
             messages.error(request, "Kindly put valid details!")
         else:
