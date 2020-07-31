@@ -42,5 +42,5 @@ class PostForm(ModelForm):
         self.fields['blogType'].widget.attrs = {'class': 'form-control'}
         self.fields['title'].widget.attrs = {'class': 'form-control'}
         self.fields['cover'].widget.attrs = {'class': 'form-control'}
-        self.fields['content'].widget.attrs = {'class': 'form-control', 'id': 'id_content'}
+        self.fields['content'].widget.attrs = {'id': 'id_content', 'class': 'form-control'}
         self.fields['time'].widget.attrs = {'class': 'form-control'}

@@ -4,6 +4,8 @@ from django.conf import settings
 from django.utils.timezone import now
 # from ckeditor_uploader.fields import RichTextUploadingField
 from Home.models import *
+from tinymce import models as tinymce_models
+
 
 # Create your models here.
 
@@ -33,7 +35,7 @@ class Post(models.Model):
     blogType = models.CharField(max_length=25, choices=blogChoice, null=True)
     title = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='Blog Image')
-    content = models.TextField()
+    content = tinymce_models.HTMLField() 
     # content = RichTextUploadingField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
