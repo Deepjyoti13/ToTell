@@ -63,6 +63,7 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+
 def account_details(request):
     writer = request.user.writer
     form = WriterForm(instance=writer)
@@ -76,6 +77,7 @@ def account_details(request):
             return redirect("")
     context = {'form': form}
     return render(request, 'Home/account_details.html', context)
+
 
 def accountSettings(request):
     writer = request.user.writer
@@ -92,7 +94,8 @@ def accountSettings(request):
 def writewithus(request):
     if request.user.is_authenticated:
         writer = request.user
-        form = PostForm(initial={'post_writer': Writer.objects.get(user=writer)})
+        form = PostForm(
+            initial={'post_writer': Writer.objects.get(user=writer)})
     else:
         return redirect("login")
     if request.method == "POST":
@@ -113,28 +116,32 @@ def sneakpeek(request):
     context = {'sneakpeek': sneakpeek, 's1': s1}
     return render(request, "Blog/sneakpeek.html", context)
 
+
 def lifestyle(request):
     lifestyle = Post.objects.filter(approve=True, blogType='Lifestyle')
     l1 = lifestyle[len(lifestyle)-1]
     context = {'lifestyle': lifestyle, 'l1': l1}
     return render(request, "Blog/lifestyle.html", context)
 
+
 def events(request):
     events = Post.objects.filter(approve=True, blogType='Events')
     e1 = events[len(events)-1]
     context = {'events': events, 'e1': e1}
-    return render(request, "Blog/events.html", context) 
+    return render(request, "Blog/events.html", context)
+
 
 def trends(request):
     trends = Post.objects.filter(approve=True, blogType='Trends')
     t1 = trends[len(trends)-1]
     context = {'trends': trends, 't1': t1}
-    return render(request, "Blog/trends.html", context) 
+    return render(request, "Blog/trends.html", context)
+
 
 def blog(request, pk):
     post = Post.objects.get(id=pk)
     comments = BlogComment.objects.filter(post=post)
-    context = {'post': post, 'comments':comments}
+    context = {'post': post, 'comments': comments}
     return render(request, "Blog/article.html", context)
 
 
@@ -144,5 +151,18 @@ def profile(request, pk):
     context = {'writer': writer, 'posts': posts}
     return render(request, 'Home/profile.html', context)
 
+
 def search(request):
-    return HttpResponse("Search")
+    query = request.GET['query']
+    if len(query) > 50:
+        allPosts = Post.objects.none()
+    else:
+        allPostsTitle = Post.objects.filter(title__icontains=query)
+        allPostsContent = Post.objects.filter(content__icontains=query)
+        # allPostsWriter = Post.objects.filter(post_writer__icontains=query)
+        allPosts = allPostsTitle.union(allPostsContent)  # , allPostsWriter)
+    if allPosts.count() == 0:
+        messages.error(
+            request, "No search results found. Please refine your search!")
+    params={'allPosts': allPosts, 'query': query}
+    return render(request, 'Blog/search.html', params)

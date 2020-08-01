@@ -45,7 +45,7 @@ body {
 .nav-link {
   color: black !important;
 }
-#fom {
+#query {
   display: block;
   width: 40vw;
   padding: 1vh;
@@ -61,7 +61,7 @@ body {
   transition: 0.4 ease;
   text-align: center;
 }
-#fom:focus {
+#query:focus {
   background-color: rgb(243, 243, 243);
 }
 #logo3{
@@ -369,7 +369,7 @@ ul li {
   #ad {
     height: 300px !important;
   }
-  #fom {
+  #query {
     height: 30px;
     width: 60vw;
   }
