@@ -7,8 +7,9 @@
     <img src="{% static 'img/totell-e1559974619203.png' %}" id="logo" alt="">
   </a>
   <nav class="navbar navbar-light fixed-top navbar-expand-sm" id="topnav">
-    <form class="form-inline">
-      <input class="form mr-sm-2" id="fom" type="search" placeholder="Search" aria-label="Search">
+    <form method="GET" action="{% url 'search' %}" class="form-inline">
+      <input class="form mr-sm-2" name="search" id="fom" type="search" placeholder="Search" aria-label="Search">
+      <input type="submit" value="Search">
     </form>
   </nav>
 </div>

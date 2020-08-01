@@ -136,14 +136,13 @@ body {
 
 #trendcards {
   height: 350px;
-
-  background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 #trendcards2 {
   height: 120px;
   width: 100%;
-  background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 #trendcards .h2 {

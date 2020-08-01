@@ -7,24 +7,19 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Sneakpeak</a></li>
-
+      <li class="breadcrumb-item"><a href="#">{% block bread %}{% endblock %}</a></li>
     </ol>
   </nav>
 </div>
 <!--ARTICAL Start-->
 <section>
   <div class="container mt-3">
-
     <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i
-        class="fas fa-eye mr-2"></i>SNEAKPEEK</h3>
-
-
+        class="fas fa-eye mr-2"></i>{% block heading %}{% endblock %}</h3>
   </div>
 </section>
 <!--ARTICAL Start-->
 <section class="container p-1 text-center bg-dark mt-2">
-
   <div class="container mt-3 " id="ad">
     <div class="row">
       <div class="col">
@@ -35,79 +30,32 @@
 <!--writer 1-->
 <section>
   <div class="container mt-3">
-
-    <h3 class="display-5" id="A-heading">FEATURED IN SNEAKPEAK</h3>
-
-
+    <h3 class="display-5" id="A-heading">FEATURED IN {% block feat %}{% endblock %}</h3>
   </div>
 </section>
-
 <!--Big header-->
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-
-      <div class="card text-center" id="trendcards">
-        <div class="card-body " id="big">
-          <p class="h2">Header</p>
-          <p>5 minute read</p>
-        </div>
-      </div>
+      {% block feattrend %}
+      
+      {% endblock %}
     </div>
   </div>
-
 </div>
-
 <!--headings 2-->
-
 <section class=" p-4" id="trending">
   <div class="container">
-
-
     <div class="row extend-sm">
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
+      {% block trendcards %}
+      
+      {% endblock %}
     </div>
   </div>
 </section>
 <!---->
-
 <!--Ad-->
-
 <section class="container p-1 text-center bg-dark mt-2">
-
   <div class="container mt-3 " id="ad">
     <div class="row">
       <div class="col">
@@ -115,58 +63,9 @@
       </div>
     </div>
 </section>
-
-
-
-<!--headings 2-->
-
-<section class=" p-4" id="trending">
-  <div class="container">
-
-
-    <div class="row extend-sm">
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-center" id="trendcards">
-          <div class="" id="z">
-            <p class="h2">Header</p>
-            <p>5 minute read</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!---->
 <!--Ad-->
-
-
 <section class="container p-1 text-center bg-dark mt-2">
-
   <div class="container mt-3 " id="ad">
     <div class="row">
       <div class="col">
@@ -174,8 +73,5 @@
       </div>
     </div>
 </section>
-
 <!--footer-->
-
-
 {% endblock body %}

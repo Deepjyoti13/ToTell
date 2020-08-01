@@ -1,0 +1,28 @@
+{% extends 'Blog/category.html' %}
+{% block bread %}SNEAK PEEK{% endblock %}
+{% block heading %}SNEAK PEEK{% endblock %}
+{% block feat %}SNEAK PEEK{% endblock %}
+{% block feattrend %}
+<div class="card text-center" id="trendcards" style="background: url({{s1.cover.url}});">
+    <a href="{% url 'blog' s1.id %}">
+        <div class="card-body " id="big">
+            <p class="h2">{{s1.title}}</p>
+            <p>{{s1.time}} minute read</p>
+        </div>
+    </a>
+</div>
+{% endblock %}
+{% block trendcards %}
+{% for sp in sneakpeek %}
+<div class="col-md-3">
+    <a href="{% url 'blog' sp.id %}">
+        <div class="card text-center" id="trendcards" style="background: url({{sp.cover.url}});">
+            <div class="" id="z">
+                <p class="h2">{{sp.title}}</p>
+                <p>{{sp.time}} minute read</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

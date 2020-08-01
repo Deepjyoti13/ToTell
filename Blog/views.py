@@ -107,9 +107,29 @@ def writewithus(request):
     return render(request, 'Blog/writewithus.html', context)
 
 
-def category(request):
-    return render(request, "Blog/category.html")
+def sneakpeek(request):
+    sneakpeek = Post.objects.filter(approve=True, blogType='Sneak Peek')
+    s1 = sneakpeek[len(sneakpeek)-1]
+    context = {'sneakpeek': sneakpeek, 's1': s1}
+    return render(request, "Blog/sneakpeek.html", context)
 
+def lifestyle(request):
+    lifestyle = Post.objects.filter(approve=True, blogType='Lifestyle')
+    l1 = lifestyle[len(lifestyle)-1]
+    context = {'lifestyle': lifestyle, 'l1': l1}
+    return render(request, "Blog/lifestyle.html", context)
+
+def events(request):
+    events = Post.objects.filter(approve=True, blogType='Events')
+    e1 = events[len(events)-1]
+    context = {'events': events, 'e1': e1}
+    return render(request, "Blog/events.html", context) 
+
+def trends(request):
+    trends = Post.objects.filter(approve=True, blogType='Trends')
+    t1 = trends[len(trends)-1]
+    context = {'trends': trends, 't1': t1}
+    return render(request, "Blog/trends.html", context) 
 
 def blog(request, pk):
     post = Post.objects.get(id=pk)
@@ -123,3 +143,6 @@ def profile(request, pk):
     posts = writer.tags.filter(approve=True)
     context = {'writer': writer, 'posts': posts}
     return render(request, 'Home/profile.html', context)
+
+def search(request):
+    return HttpResponse("Search")

@@ -1,20 +1,17 @@
 {% load static %}
-
 <!--top nav-->
-
 <div class="" style="background: white;">
     <a href="{% url 'home' %}">
         <img src="{% static 'img/totell-e1559974619203.png' %}" id="logo" alt="" />
     </a>
     <nav class="navbar navbar-light fixed-top navbar-expand-sm" id="topnav">
-        <form class="form-inline">
-            <input class="form mr-sm-2" id="fom" type="search" placeholder="Search" aria-label="Search" />
+        <form method="GET" action="{% url 'search' %}" class="form-inline">
+            <input class="form mr-sm-2" name="search" id="fom" type="search" placeholder="Search" aria-label="Search" />
+            <input type="submit" value="Submit">
         </form>
     </nav>
 </div>
-
 <!--bottom nav-->
-
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color" id="a">
     <button class="navbar-toggler btn" id="mobilemenu" type="button" data-toggle="collapse" data-target="#navbarnav">
         <span class="navbar-toggler-icon ml-auto" id="mobmen"></span>
@@ -23,16 +20,16 @@
         <a href="{% url 'home' %}"><img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" /></a>
         <ul class="navbar-nav m-auto p-2">
             <li class="nav-item px-3 active">
-                <a href="#" class="nav-link">SNEAK-PEAK</a>
+                <a href="{% url 'sneakpeek' %}" class="nav-link">SNEAK-PEEK</a>
             </li>
             <li class="nav-item px-3">
-                <a href="#c" class="nav-link">EVENTS</a>
+                <a href="{% url 'events' %}" class="nav-link">EVENTS</a>
             </li>
             <li class="nav-item px-3">
-                <a href="#d" class="nav-link">LIFESTYLE</a>
+                <a href="{% url 'lifestyle' %}" class="nav-link">LIFESTYLE</a>
             </li>
             <li class="nav-item px-3">
-                <a href="#e" class="nav-link"> TRENDS</a>
+                <a href="{% url 'trends' %}" class="nav-link"> TRENDS</a>
             </li>
             <li class="nav-item px-3">
                 <a id="wwu" href="{% url 'writewithus' %}" class="nav-link">
@@ -48,7 +45,6 @@
             <li><a href="{% url 'login' %}">&nbsp &nbsp &nbsp Log In</a></li>
             {% endif %}
         </ul>
-
         <div class="container row" id="icon2nav">
             <p style="font-weight: 600;">Follow us</p>
             <div class="row" id="iconrowbot">

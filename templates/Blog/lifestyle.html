@@ -1,0 +1,28 @@
+{% extends 'Blog/category.html' %}
+{% block bread %}LIFESTYLE{% endblock %}
+{% block heading %}LIFESTYLE{% endblock %}
+{% block feat %}LIFESTYLE{% endblock %}
+{% block feattrend %}
+<div class="card text-center" id="trendcards" style="background: url({{l1.cover.url}});">
+    <a href="{% url 'blog' l1.id %}">
+        <div class="card-body " id="big">
+            <p class="h2">{{l1.title}}</p>
+            <p>{{l1.time}} minute read</p>
+        </div>
+    </a>
+</div>
+{% endblock %}
+{% block trendcards %}
+{% for ls in lifestyle %}
+<div class="col-md-3">
+    <a href="{% url 'blog' ls.id %}">
+        <div class="card text-center" id="trendcards" style="background: url({{ls.cover.url}});">
+            <div class="" id="z">
+                <p class="h2">{{ls.title}}</p>
+                <p>{{ls.time}} minute read</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

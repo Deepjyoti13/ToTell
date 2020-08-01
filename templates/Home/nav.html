@@ -10,16 +10,16 @@
     <a href="/"><img src="{% static 'img/totell-e1559974619203.png' %}" alt="" id="logo2" /></a>
     <ul class="navbar-nav m-auto p-2">
       <li class="nav-item px-3 active">
-        <a href="#" class="nav-link">SNEAK-PEAK</a>
+        <a href="{% url 'sneakpeek' %}" class="nav-link">SNEAK-PEEK</a>
       </li>
       <li class="nav-item px-3">
-        <a href="#c" class="nav-link">EVENTS</a>
+        <a href="{% url 'events' %}" class="nav-link">EVENTS</a>
       </li>
       <li class="nav-item px-3">
-        <a href="#d" class="nav-link">LIFESTYLE</a>
+        <a href="{% url 'lifestyle' %}" class="nav-link">LIFESTYLE</a>
       </li>
       <li class="nav-item px-3">
-        <a href="#e" class="nav-link"> TRENDS</a>
+        <a href="{% url 'trends' %}" class="nav-link"> TRENDS</a>
       </li>
       <li class="nav-item px-3">
         <a id="wwu" href="{% url 'writewithus' %}" class="nav-link">
