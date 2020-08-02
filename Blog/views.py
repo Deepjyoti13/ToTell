@@ -29,10 +29,14 @@ def home(request):
         latest2 = allPosts[1:2]
         latest3 = allPosts[2:3]
     recommended = allPosts.filter(recommend=True)[:3]
-    r1 = recommended[0]
-    r2 = recommended[1:]
-    context = {'allPosts': allPosts, 'latest1': latest1,
-               'latest2': latest2, 'latest3': latest3, 'recommended': recommended, 'r1': r1, 'r2': r2}
+    if len(recommended) > 3:
+        r1 = recommended[len(recommended)-1]
+        r2 = recommended[len(recommended)-2:len(recommended)-4]
+    else:
+        r1 = recommended[:1]
+        r2 = recommended[1:]
+    trending = allPosts.order_by('-view')[:30]
+    context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended, 'r1': r1, 'r2': r2, 'trending': trending}
     return render(request, "Home/home.html", context)
 
 
@@ -156,8 +160,10 @@ def trends(request):
     context = {'trends': trends, 't1': t1}
     return render(request, "Blog/trends.html", context)
 
+
 def sciencetech(request):
-    scitech = Post.objects.filter(approve=True, blogType='Science & Technology')
+    scitech = Post.objects.filter(
+        approve=True, blogType='Science & Technology')
     if len(scitech) > 0:
         t1 = scitech[len(scitech)-1]
     else:
@@ -176,6 +182,7 @@ def blog(request, pk):
         liked = True
     context = {'post': post, 'comments': comments, 'liked': liked}
     return render(request, "Blog/article.html", context)
+
 
 def like(request, pk):
     if request.user.is_authenticated:
@@ -197,6 +204,7 @@ def like(request, pk):
 #         post.view.add(request.user)
 #     return HttpResponseRedirect(reverse('blog', args=[str(pk)]))
 
+
 def profile(request, pk):
     writer = Writer.objects.get(id=pk)
     posts = writer.tags.filter(approve=True)
@@ -211,10 +219,10 @@ def search(request):
     else:
         allPostsTitle = Post.objects.filter(title__icontains=query)
         allPostsContent = Post.objects.filter(content__icontains=query)
-        # allPostsWriter = Post.objects.filter(post_writer__icontains=query)
-        allPosts = allPostsTitle.union(allPostsContent)  # , allPostsWriter)
+        allPostsWriter = Post.objects.filter(post_writer__user__username__icontains=query)
+        allPosts = allPostsTitle.union(allPostsContent, allPostsWriter)
     if allPosts.count() == 0:
         messages.error(
             request, "No search results found. Please refine your search!")
-    params={'allPosts': allPosts, 'query': query}
+    params = {'allPosts': allPosts, 'query': query}
     return render(request, 'Blog/search.html', params)

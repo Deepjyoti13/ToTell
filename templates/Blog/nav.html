@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link rel="icon" href="{% static 'img/totell-e1559974619203.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            color: black;
+        }
+
+        #a {
+            background: #fff;
+        }
+
+        #hiuser:hover {
+            background: none;
+        }
+
+        #icon2nav {
+            display: none;
+        }
+
+        #socialicon {
+            width: 100%;
+        }
+
+        .nav-link {
+            color: black !important;
+        }
+
+        @media only screen and (max-width: 991px) {
+            #mobilemenu {
+                background: rgba(255, 255, 255, 0);
+                box-shadow: none;
+                color: black;
+                padding: 0 0 0 15px;
+            }
+
+            #mobmen {
+                background-image: url({% static 'img/button.svg' %});
+
+                width: 3em;
+                height: 3em;
+            }
+
+            #navbarnav {
+                height: 100vh;
+            }
+
+            #icon2nav {
+                display: flex;
+                justify-content: center;
+
+                margin: 10vh 0 0 0;
+                padding: 0;
+                text-align: center;
+            }
+
+            #icon2nav i {
+                margin: 5px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            #socialicon {
+                width: 100%;
+            }
+
+            #iconrowbot {
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 10vh;
+            }
+
+            #iconrowbot i {
+                margin: 0px;
+                padding: 0;
+            }
+
+            #iconrowbot a {
+                justify-content: center;
+                padding: 0;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            #mobilemenu {
+                background: rgba(255, 255, 255, 0);
+                box-shadow: none;
+                color: black;
+                padding: 0 0 0 15px;
+            }
+
+            #mobmen {
+                background-image: url({% static 'img/button.svg);
+
+                width: 3em;
+                height: 3em;
+            }
+
+            #navbarnav {
+                height: 100vh;
+            }
+
+            #icon2nav {
+                display: flex;
+                justify-content: center;
+
+                margin: 0 0 0 0;
+                padding: 0;
+                text-align: center;
+            }
+
+            #icon2nav i {
+                margin: 5px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            #iconrowbot {
+                justify-content: center;
+            }
+
+            #iconrowbot i {
+                margin: 0px;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+
+
+    <!--carousel-->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-1 ml-3">
+                    <img src="{% static 'img/totell-e1559974619203.png' %}" style="width: 100%;" alt="">
+                </div>
+                <div class="display-6 col-md-10 mt-4 text-right">Totell Express</div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Navbar-->
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color " id="a">
+        <button class="navbar-toggler btn" id="mobilemenu" type="button" data-toggle="collapse"
+            data-target="#navbarnav">
+            <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarnav">
+            <ul class="navbar-nav m-auto p-2">
+                <li class="nav-item px-1 active">
+                </li>
+                <form class="form-inline my-2 my-lg-0 ">
+                    <input class="form-control mr-sm-2 rounded-pill" id="query" name="query" type="search"
+                        placeholder="Search" aria-label="Search">
+                    <button type="submit" style="background:none;border: none;"><i class="fas fa-search"></i></button>
+                </form>
+                <li class="nav-item px-2 active">
+                    <a href="#" class="nav-link">SNEAK-PEAK</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#c" class="nav-link">EVENTS</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#d" class="nav-link">LIFESTYLE</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#e" class="nav-link"> TRENDS</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a href="#e" class="nav-link">TECHNOLOGY</a>
+                </li>
+                <li class="nav-item px-2" id="hiuser">
+                    <!--Dropdown primary-->
+                    <div class="dropdown rounded-pill">
+                        <!--Trigger-->
+                        <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect with Us</button>
+                        <!--Menu-->
+                        <div class="dropdown-menu dropdown-primary">
+                            <a class="dropdown-item" href="#">login</a>
+                            <a class="dropdown-item" href="#">Register</a>
+                        </div>
+                    </div>
+                    <!--/Dropdown primary-->
+                </li>
+            </ul>
+            <div class="container row" id="icon2nav">
+                <p style="font-weight: 600;">Follow us</p>
+                <div class="row" id="iconrowbot">
+                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
+                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
+                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
+                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+<script>
+    $(".carousel").carousel({
+        interval: 5000,
+        pause: "hover",
+    });
+</script>
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+</html>
