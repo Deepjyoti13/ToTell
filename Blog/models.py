@@ -31,6 +31,7 @@ class Post(models.Model):
         ('Events', 'Events'),
         ('Lifestyle', 'Lifestyle'),
         ('Trends', 'Trends'),
+        ('Science & Technology', 'Science & Technology'),
     )
     blogType = models.CharField(max_length=25, choices=blogChoice, null=True)
     title = models.CharField(max_length=100)

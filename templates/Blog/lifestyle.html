@@ -3,14 +3,19 @@
 {% block heading %}LIFESTYLE{% endblock %}
 {% block feat %}LIFESTYLE{% endblock %}
 {% block feattrend %}
-<div class="card text-center" id="trendcards" style="background: url({{l1.cover.url}});">
-    <a href="{% url 'blog' l1.id %}">
-        <div class="card-body " id="big">
-            <p class="h2">{{l1.title}}</p>
-            <p>{{l1.time}} minute read</p>
-        </div>
-    </a>
-</div>
+{% if l1 %}
+    <div class="card text-center" id="trendcards" style="background: url({{l1.cover.url}});">
+        <a href="{% url 'blog' l1.id %}">
+            <div class="card-body " id="big">
+                <p class="h2">{{l1.title}}</p>
+                <p>{{l1.time}} minute read</p>
+            </div>
+        </a>
+    </div>
+{% else %}
+    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+{% endif %}
+
 {% endblock %}
 {% block trendcards %}
 {% for ls in lifestyle %}

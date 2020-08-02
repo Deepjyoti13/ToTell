@@ -3,14 +3,18 @@
 {% block heading %}EVENTS{% endblock %}
 {% block feat %}EVENTS{% endblock %}
 {% block feattrend %}
-<div class="card text-center" id="trendcards" style="background: url({{e1.cover.url}});">
-    <a href="{% url 'blog' e1.id %}">
-        <div class="card-body " id="big">
-            <p class="h2">{{e1.title}}</p>
-            <p>{{e1.time}} minute read</p>
-        </div>
-    </a>
-</div>
+{% if e1 %}
+    <div class="card text-center" id="trendcards" style="background: url({{e1.cover.url}});">
+        <a href="{% url 'blog' e1.id %}">
+            <div class="card-body " id="big">
+                <p class="h2">{{e1.title}}</p>
+                <p>{{e1.time}} minute read</p>
+            </div>
+        </a>
+    </div>
+{% else %}
+    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>   
+{% endif %}
 {% endblock %}
 {% block trendcards %}
 {% for e in events %}

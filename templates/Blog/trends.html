@@ -3,14 +3,18 @@
 {% block heading %}TRENDS{% endblock %}
 {% block feat %}TRENDS{% endblock %}
 {% block feattrend %}
-<div class="card text-center" id="trendcards" style="background: url({{t1.cover.url}});">
-    <a href="{% url 'blog' t1.id %}">
-        <div class="card-body " id="big">
-            <p class="h2">{{t1.title}}</p>
-            <p>{{t1.time}} minute read</p>
-        </div>
-    </a>
-</div>
+{% if t1 %}    
+    <div class="card text-center" id="trendcards" style="background: url({{t1.cover.url}});">
+        <a href="{% url 'blog' t1.id %}">
+            <div class="card-body " id="big">
+                <p class="h2">{{t1.title}}</p>
+                <p>{{t1.time}} minute read</p>
+            </div>
+        </a>
+    </div>
+{% else %}
+    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+{% endif %}
 {% endblock %}
 {% block trendcards %}
 {% for t in trends %}

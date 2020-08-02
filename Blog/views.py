@@ -20,9 +20,14 @@ def home(request):
             messages.error(request, "Please fill in your details!")
             return redirect("details")
     allPosts = Post.objects.filter(approve=True)
-    latest1 = allPosts[len(allPosts)-1:len(allPosts)]
-    latest2 = allPosts[len(allPosts)-2:len(allPosts)-1]
-    latest3 = allPosts[len(allPosts)-3:len(allPosts)-2]
+    if len(allPosts) > 3:
+        latest1 = allPosts[len(allPosts)-1:len(allPosts)]
+        latest2 = allPosts[len(allPosts)-2:len(allPosts)-1]
+        latest3 = allPosts[len(allPosts)-3:len(allPosts)-2]
+    else:
+        latest1 = allPosts[:1]
+        latest2 = allPosts[1:2]
+        latest3 = allPosts[2:3]
     recommended = allPosts.filter(recommend=True)[:3]
     r1 = recommended[0]
     r2 = recommended[1:]
@@ -114,30 +119,51 @@ def writewithus(request):
 
 def sneakpeek(request):
     sneakpeek = Post.objects.filter(approve=True, blogType='Sneak Peek')
-    s1 = sneakpeek[len(sneakpeek)-1]
+    if len(sneakpeek) > 0:
+        s1 = sneakpeek[len(sneakpeek)-1]
+    else:
+        s1 = sneakpeek[0:1]
     context = {'sneakpeek': sneakpeek, 's1': s1}
     return render(request, "Blog/sneakpeek.html", context)
 
 
 def lifestyle(request):
     lifestyle = Post.objects.filter(approve=True, blogType='Lifestyle')
-    l1 = lifestyle[len(lifestyle)-1]
+    if len(lifestyle) > 0:
+        l1 = lifestyle[len(lifestyle)-1]
+    else:
+        l1 = lifestyle[0:1]
     context = {'lifestyle': lifestyle, 'l1': l1}
     return render(request, "Blog/lifestyle.html", context)
 
 
 def events(request):
     events = Post.objects.filter(approve=True, blogType='Events')
-    e1 = events[len(events)-1]
+    if len(events) > 0:
+        e1 = events[len(events)-1]
+    else:
+        e1 = events[0:1]
     context = {'events': events, 'e1': e1}
     return render(request, "Blog/events.html", context)
 
 
 def trends(request):
     trends = Post.objects.filter(approve=True, blogType='Trends')
-    t1 = trends[len(trends)-1]
+    if len(trends) > 0:
+        t1 = trends[len(trends)-1]
+    else:
+        t1 = trends[0:1]
     context = {'trends': trends, 't1': t1}
     return render(request, "Blog/trends.html", context)
+
+def sciencetech(request):
+    scitech = Post.objects.filter(approve=True, blogType='Science & Technology')
+    if len(scitech) > 0:
+        t1 = scitech[len(scitech)-1]
+    else:
+        t1 = scitech[0:1]
+    context = {'scitech': scitech, 't1': t1}
+    return render(request, "Blog/sciencetech.html", context)
 
 
 def blog(request, pk):

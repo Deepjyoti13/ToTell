@@ -3,14 +3,18 @@
 {% block heading %}SNEAK PEEK{% endblock %}
 {% block feat %}SNEAK PEEK{% endblock %}
 {% block feattrend %}
-<div class="card text-center" id="trendcards" style="background: url({{s1.cover.url}});">
-    <a href="{% url 'blog' s1.id %}">
-        <div class="card-body " id="big">
-            <p class="h2">{{s1.title}}</p>
-            <p>{{s1.time}} minute read</p>
-        </div>
-    </a>
-</div>
+{% if s1 %}
+    <div class="card text-center" id="trendcards" style="background: url({{s1.cover.url}});">
+        <a href="{% url 'blog' s1.id %}">
+            <div class="card-body " id="big">
+                <p class="h2">{{s1.title}}</p>
+                <p>{{s1.time}} minute read</p>
+            </div>
+        </a>
+    </div>
+{% else %}
+    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+{% endif %}
 {% endblock %}
 {% block trendcards %}
 {% for sp in sneakpeek %}
