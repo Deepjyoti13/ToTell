@@ -1,18 +1,20 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>TOTELL EXPRESS | Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="icon" href="" type="image/x-icon" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <link rel="icon" href="{% static 'img/totell-e1559974619203.png' %}" type="image/x-icon">
+    <link rel="icon" href="img/totell-e1559974619203.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <link rel="stylesheet" href="css/mdb.min.css" />
     <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -32,11 +34,19 @@
         }
 
         #socialicon {
-            width: 100%;
+            width: 25%;
         }
 
         .nav-link {
             color: black !important;
+        }
+
+        .nav-link {
+            border-radius: 50px;
+        }
+
+        .active, .nav-link:hover {
+            background: rgba(3, 35, 104, 0.089);
         }
 
         @media only screen and (max-width: 991px) {
@@ -48,10 +58,14 @@
             }
 
             #mobmen {
-                background-image: url({% static 'img/button.svg' %});
+                background-image: url(./img/button.svg);
 
                 width: 3em;
                 height: 3em;
+            }
+
+            #socialicon {
+                width: 100%;
             }
 
             #navbarnav {
@@ -93,6 +107,10 @@
                 justify-content: center;
                 padding: 0;
             }
+
+            .pcon {
+                display: none;
+            }
         }
 
         @media only screen and (max-width: 767px) {
@@ -104,10 +122,14 @@
             }
 
             #mobmen {
-                background-image: url({% static 'img/button.svg);
+                background-image: url(./img/button.svg);
 
                 width: 3em;
                 height: 3em;
+            }
+
+            #socialicon {
+                width: 100%;
             }
 
             #navbarnav {
@@ -133,6 +155,10 @@
                 justify-content: center;
             }
 
+            .pcon {
+                display: none;
+            }
+
             #iconrowbot i {
                 margin: 0px;
                 padding: 0;
@@ -142,17 +168,14 @@
 </head>
 
 <body>
-
     <!-- Start your project here-->
 
-
     <!--carousel-->
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-1 ml-3">
-                    <img src="{% static 'img/totell-e1559974619203.png' %}" style="width: 100%;" alt="">
+                    <img src="./img/totell-e1559974619203.png" style="width: 100%;" alt="" />
                 </div>
                 <div class="display-6 col-md-10 mt-4 text-right">Totell Express</div>
             </div>
@@ -161,19 +184,20 @@
 
     <!--Navbar-->
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color " id="a">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark primary-color" id="a">
         <button class="navbar-toggler btn" id="mobilemenu" type="button" data-toggle="collapse"
             data-target="#navbarnav">
-            <span class="navbar-toggler-icon ml-auto " id="mobmen"></span>
+            <span class="navbar-toggler-icon ml-auto" id="mobmen"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarnav">
             <ul class="navbar-nav m-auto p-2">
-                <li class="nav-item px-1 active">
-                </li>
-                <form class="form-inline my-2 my-lg-0 ">
+                <li class="nav-item px-1"></li>
+                <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2 rounded-pill" id="query" name="query" type="search"
-                        placeholder="Search" aria-label="Search">
-                    <button type="submit" style="background:none;border: none;"><i class="fas fa-search"></i></button>
+                        placeholder="Search" aria-label="Search" />
+                    <button type="submit" style="background: none; border: none;">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </form>
                 <li class="nav-item px-2 active">
                     <a href="#" class="nav-link">SNEAK-PEAK</a>
@@ -190,28 +214,45 @@
                 <li class="nav-item px-2">
                     <a href="#e" class="nav-link">TECHNOLOGY</a>
                 </li>
+
                 <li class="nav-item px-2" id="hiuser">
                     <!--Dropdown primary-->
                     <div class="dropdown rounded-pill">
                         <!--Trigger-->
-                        <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect with Us</button>
+                        <button class="btn btn-dark dropdown-toggle rounded-pill" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Connect with Us
+                        </button>
+
                         <!--Menu-->
                         <div class="dropdown-menu dropdown-primary">
                             <a class="dropdown-item" href="#">login</a>
                             <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
+                                    alt="" />
+                                Like</a>
+                            <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
+                                    alt="" />
+                                follow</a>
+                            <a class="dropdown-item pcon" href="#"><img id="socialicon"
+                                    src="./img/icons8-google-maps.svg" alt="" />
+                                Rate</a>
+                            <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
+                                    alt="" />
+                                Connect</a>
                         </div>
                     </div>
                     <!--/Dropdown primary-->
                 </li>
             </ul>
+
             <div class="container row" id="icon2nav">
                 <p style="font-weight: 600;">Follow us</p>
                 <div class="row" id="iconrowbot">
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt=""></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt=""></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt=""></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt=""></a>
+                    <a class="col-2" href=""><img id="socialicon" src="./img/icons8-facebook.svg" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon" src="./img/icons8-instagram.svg" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon" src="./img/icons8-google-maps.svg" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon" src="./img/icons8-linkedin.svg" alt="" /></a>
                 </div>
             </div>
         </div>
@@ -223,5 +264,6 @@
         pause: "hover",
     });
 </script>
-<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
 </html>
