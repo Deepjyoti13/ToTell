@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body mt-2">
-            <h5 class="card-title">{{post.timestamp|date}}</h5>
+            <h5 class="card-title">{{post.timestamp|date}}</h5><small>{{post.view.count}} views</small>
             <p class="card-text">by <span style="font-weight: 700;">{{post.post_writer}}</span></p>
           </div>
         </div>
@@ -59,7 +59,6 @@
             style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
             id="trendcards">
             <div class=" " id="zed">
-
             </div>
           </div>
         </div>
@@ -68,23 +67,15 @@
             style="background: url(https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);background-size: cover;"
             id="trendcards">
             <div class=" " id="zed">
-
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </section>
 </div>
 <!--1st ad-->
-
-
-
 <!--carousel add-->
-
-
 
 <section class="container-fluid" id="carad">
   <div class="carousel slide" id="b" data-ride="carousel">
@@ -229,6 +220,19 @@
 
 </div>
 
+<!-- Likes -->
+<div class="container mt-5">
+  <form action="{% url 'like_post' post.id %}" method="post">
+    {% csrf_token %}
+    {% if liked %}
+    <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger">Unlike</button>
+    {% else %}
+    <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-primary">Like</button>
+    {% endif %}
+    {{post.likes.count}} Likes
+  </form>
+</div>
+
 <!-- Comments -->
 <br>
 <br>
@@ -248,7 +252,8 @@
   {% for comment in comments %}
   <div class="row my-3">
     <div class="col-md-1"><img class="w-100 p-2" src="{{comment.user.writer.profile_pic.url}}"></div>
-    <div class="col-md-11"><b>{{comment.user.username}}</b> <small>on {{comment.timestamp}}</small><br>{{comment.comment}}</div>
+    <div class="col-md-11"><b>{{comment.user.username}}</b> <small>on
+        {{comment.timestamp}}</small><br>{{comment.comment}}</div>
   </div>
   <hr class="mr-5 ml-5">
   {% endfor %}

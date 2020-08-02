@@ -16,6 +16,7 @@ urlpatterns = [
     path('events/', views.events, name="events"),
     path('lifestyle/', views.lifestyle, name="lifestyle"),
     path('trends/', views.trends, name="trends"),
+    path('like/<int:pk>', views.like, name="like_post"),
     path('blog/<str:pk>/', views.blog, name="blog"),
     path('settings/', views.accountSettings, name="settings"),
     path('profile/<str:pk>/', views.profile, name="profile"),

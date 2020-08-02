@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from Home.models import BlogComment
 from .models import *
@@ -6,6 +6,8 @@ from .forms import *
 from django.forms import inlineformset_factory
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -141,9 +143,33 @@ def trends(request):
 def blog(request, pk):
     post = Post.objects.get(id=pk)
     comments = BlogComment.objects.filter(post=post)
-    context = {'post': post, 'comments': comments}
+    if request.user.is_authenticated:
+        post.view.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        liked = True
+    context = {'post': post, 'comments': comments, 'liked': liked}
     return render(request, "Blog/article.html", context)
 
+def like(request, pk):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
+        liked = False
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            liked = False
+        else:
+            post.likes.add(request.user)
+            liked = True
+    else:
+        return redirect("login")
+    return HttpResponseRedirect(reverse('blog', args=[str(pk)]))
+
+# def view(request, pk):
+#     if request.user.is_authenticated:
+#         post = get_object_or_404(Post, id=request.POST.get('post_id'))
+#         post.view.add(request.user)
+#     return HttpResponseRedirect(reverse('blog', args=[str(pk)]))
 
 def profile(request, pk):
     writer = Writer.objects.get(id=pk)

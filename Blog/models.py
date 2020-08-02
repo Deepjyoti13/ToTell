@@ -41,9 +41,10 @@ class Post(models.Model):
     approve = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)
     time = models.IntegerField()
+    likes = models.ManyToManyField(User, related_name='blog_posts', blank=True)
+    view = models.ManyToManyField(User, related_name='blog_views', blank=True)
     post_writer = models.ForeignKey(Writer,null=True, related_name="tags", related_query_name="tag", on_delete=models.CASCADE)
     
 
     def __str__(self):
         return self.title
-
