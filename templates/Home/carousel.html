@@ -1,0 +1,49 @@
+<section>
+    <div class="carousel slide" id="b" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#b" data-slide-to="0" class="active"></li>
+        <li data-target="#b" data-slide-to="1"></li>
+        <li data-target="#b" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        {% for r1 in r1 %}
+        <div class="carousel-item active">
+          <a href="{% url 'blog' r1.id %}">
+            <img src="{{ r1.cover.url }}" alt="" id="a1" />
+          </a>
+          <div class="carousel-caption" id="carcap">
+            <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
+              {{ r1.post_writer }}</h5>
+            <p class="lead">
+              {{ r1.title }}
+            </p>
+            <p>{{ r1.time }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% for rec in r2 %}
+        <div class="carousel-item">
+          <a href="">
+            <img src="{{ rec.cover.url }}" alt="" id="a1" />
+          </a>
+          <div class="carousel-caption" id="carcap">
+            <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
+              {{ rec.post_writer }}</h5>
+            <p class="lead">
+              {{ rec.title }}
+            </p>
+            <p>{{ rec.time }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#b" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" id="carbut" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#b" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" id="carbut" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>

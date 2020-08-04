@@ -1,0 +1,154 @@
+{% extends 'Blog/base.html' %}
+{% load static %}
+{% block head %}
+<title>TOTELL EXPRESS | {{post.title}}</title>
+<link rel="stylesheet" href="{% static 'css/article2.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="container mt-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">{{ post.blogType }}</a></li>
+                <li class="breadcrumb-item" aria-current="page">
+                    {{post.title}}
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <!--ARTICAL Start-->
+    <!--writer 1-->
+    <section>
+        <div class="container mt-3">
+            <p class="lead bg-dark" id="top">{{ post.blogType }}</p>
+            <img src="{{post.cover.url}}" class="img-fluid mb-2" alt="Responsive image">
+            <h3 class="display-5" id="A-heading" style="font-weight: 600;">{{post.title}}</h3>
+            <p>{{post.time}} minutes read | {{post.view.count}} views</p>
+            <hr />
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <a href="{% url 'profile' post.post_writer.id %}"><img src="{{ post.post_writer.profile_pic.url }}" class="card-img m-3" alt="..." /></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">{{post.timestamp|date}}</h5>
+                            <a href="{% url 'profile' post.post_writer.id %}"><p class="card-text">by <span style="font-weight: 700;">{{post.post_writer}}</span></p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Ad-->
+    <div class="container">
+        <div class="row extend-sm">
+            <div class="col-md-6">
+                <img style="width: 100%;border-radius: 10px;box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.26);"
+                    src="https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <!--article img 1 & para-->
+    <div class="container mt-3">
+        <div class="row">
+            <p class="lead mt-3" id="para1">{{post.content|safe}}</p>
+            <hr>
+        </div>
+    </div>
+    <!-- Ad -->
+    <div class="container">
+        <div class="row extend-sm">
+            <div class="col-md-6">
+                <img style="width: 100%;border-radius: 10px;box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.26);"
+                    src="https://images.unsplash.com/photo-1551383616-a9e150c07fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <!--writer 2-->
+    <section>
+        <div class="container mt-3">
+            <hr />
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <a href="{% url 'profile' post.post_writer.id %}"><img src="{{ post.post_writer.profile_pic.url }}" class="card-img m-3" alt="..." /><a href="{% url 'profile' post.post_writer.id %}"></a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body mt-2">
+                            <h5 class="card-title">{{post.timestamp|date}}</h5>
+                            <a href="{% url 'profile' post.post_writer.id %}"><p class="card-text">by <span style="font-weight: 700;">{{post.post_writer}}</span></p><a href="{% url 'profile' post.post_writer.id %}"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Article End-->
+    <div class="container">
+        <div class="row">
+            <form action="{% url 'like_post' post.id %}" method="post">
+                {% csrf_token %}
+                {% if liked %}
+                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger"><i
+                        class="like__icon fa fa-heart"></i></button>
+                {% else %}
+                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger"
+                    style="justify-content: center;">
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </button>
+                {% endif %}
+                <div class="col-md-11 ">
+                    <p class="display-7 " id="nolike">{{post.likes.count}} people like this article</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Comments ({{comments.count}})</h2>
+        <form action="{% url 'postComment' %}" method="POST"> {% csrf_token %}
+          <div class="form-group">
+            <label for="comment">Post a comment</label>
+            <input type="text" id="comment" class="form-control my-1" name="comment" placeholder="Enter your comment...">
+          </div>
+          <input type="hidden" name="postID" value="{{ post.id }}">
+          <input type="submit" class="btn btn-primary" name="submit" value="Comment">
+        </form>
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        {% for comment in comments %}
+        <div class="row my-3">
+          <div class="col-md-1"><img class="w-100 p-2" src="{{comment.user.writer.profile_pic.url}}"></div>
+          <div class="col-md-11"><b>{{comment.user.username}}</b> <small>on
+              {{comment.timestamp}}</small><br>{{comment.comment}}</div>
+        </div>
+        <hr class="mr-5 ml-5">
+        {% endfor %}
+      </div>
+      <hr class="m-5">
+    <!--links-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="disply-3">Share the Article</h3>
+                <hr>
+                <div id="middleicon p-3">
+                    <i class="fa fa-facebook-official fa-2x p-2"></i>
+                    <i class="fa fa-instagram fa-2x p-2" aria-hidden="true"></i>
+                    <i class="fa fa-pinterest fa-2x p-2" aria-hidden="true"></i>
+                    <i class="fa fa-whatsapp fa-2x p-2" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin fa-2x p-2 " aria-hidden="true"></i>
+                    <i class="fa fa-twitter fa-2x p-2" aria-hidden="true"></i>
+                    <i class="fab fa-linkedin fa-2x p-2" aria-hidden="true"></i>
+                    <i class="fab fa-reddit-alien fa-2x p-2" aria-hidden="true"></i>
+                    <i class="far fa-copy fa-2x p-2" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--more articles-->
+    {% include 'Blog/trending.html' %}
+{% endblock %}

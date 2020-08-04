@@ -1,0 +1,22 @@
+<section class=" p-4" id="trending">
+    <div class="container">
+        <h3 class="display-5" style="font-family: Roboto, sans-serif;font-weight: 700;">
+            See more articles
+        </h3>
+        <hr class="three">
+        <div class="row extend-sm">
+            {% for trend in trending %}
+            <div class="col-md-3">
+                <a href="{% url 'blog' trend.id %}">
+                    <div class="card text-center" id="trendcards" style="background: url({{trend.cover.url}});">
+                        <div class="" id="z">
+                            <p class="h2 ml-2">{{trend.title}}</p>
+                            <p class="ml-2">{{trend.time}} minutes read</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

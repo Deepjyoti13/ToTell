@@ -31,8 +31,12 @@
 </head>
 
 <body>
+  {% include 'Home/carousel.html' %}
+  {%  include 'Blog/nav.html' %}
   {% block body %}
   {% endblock body %}
+  {% include 'Blog/bottom.html' %}
+
 </body>
 <script>
   $(".carousel").carousel({
@@ -40,6 +44,5 @@
     pause: "hover",
   });
 </script>
-<script type="text/javascript" src="{% static 'js/mdb.min.js' %}></script>
-<script type=" text/javascript"> </script> <script src="{% static 'index.js' %}></script>
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
 </html>
