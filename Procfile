@@ -1,0 +1,1 @@
+web: gunicorn ToTell.wsgi --log-file -
