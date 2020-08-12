@@ -1,4 +1,5 @@
 {
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "C:\\Users\\ersci\\envs\\Django\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\Amitabha PC\\AppData\\Local\\Programs\\Python\\Python38\\python.exe",
+    "python.formatting.provider": "black"
 }

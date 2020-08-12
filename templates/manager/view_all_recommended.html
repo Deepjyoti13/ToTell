@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>TOTELL EXPRESS | requests</title>
+  <link rel="icon" href="" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/all_view.css' %}" />
+  <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <!--top nav-->
+
+  <div class="" style="background: white;">
+    <a href="">
+      <img src="{% static '/img/totell-e1559974619203.png' %}" id="logo" alt="" />
+    </a>
+    <nav class="navbar navbar-light fixed-top navbar-expand-sm" id="topnav">
+      <div id="fom">
+        <p>ADMIN</p>
+      </div>
+    </nav>
+
+  </div>
+
+  <!--bottom nav-->
+
+
+
+  <!--breadcrumb-->
+  <div class="container mt-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'manager_home' %}">Admin</a></li>
+        <li class="breadcrumb-item"><a href="#">Article Requests</a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- message  -->
+  <div class="text-center">
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+  </div>
+
+  <!-- recommended section starts -->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">RECOMMENDED</h3>
+
+
+    </div>
+  </section>
+
+  <!--ARTICAL Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+      <div class="row extend-sm">
+
+        {% for post in recommend %}
+        <a class="col-md-3" href="{% url 'unrecommend' post.id %}">
+          <div class="card text-center" style="background: url({{post.cover.url}});
+        background-size: cover;" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">{{post.title}}</p>
+              <p>{{post.time}} minute read</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!--ARTICAL Start-->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">ALL ARTICLE </h3>
+
+    </div>
+  </section>
+  <!--ARTICAL Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+
+
+      <div class="row extend-sm">
+        {% for post in post %}
+        <a class="col-md-3" href="{% url 'recommend' post.id %}">
+          <div class="card text-center" style="background: url({{post.cover.url}});
+          background-size: cover;" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">{{post.title}}</p>
+              <p>{{post.time}} minute read</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- logout  -->
+  <section>
+    <div class="container" id="logout">
+      <a href="{% url 'manager_logout' %}" class="btn btn-dark mt-3 mb-5">Logout</a>
+    </div>
+  </section>
+
+  <!--footer-->
+
+  <!--quick links-->
+
+
+
+
+
+  <!--footer-->
+  <footer class="bg-dark text-center " style="width: 100vw; padding-bottom: 5px;padding-top: 5px;">
+    <p class="lead" id="foot">Totell express admin</p>
+  </footer>
+
+
+  <!-- End your project here-->
+
+
+</body>
+<script>
+  $(".carousel").carousel({
+    interval: 5000,
+    pause: "hover",
+  });
+</script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript"></script>
+<script src="./index.js"></script>
+
+</html>
