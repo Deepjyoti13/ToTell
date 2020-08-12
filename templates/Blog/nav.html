@@ -23,7 +23,7 @@
             display: none;
         }
 
-        #socialicon {
+        #socialicon_pic {
             width: 25%;
         }
 
@@ -54,7 +54,7 @@
                 height: 3em;
             }
 
-            #socialicon {
+            #socialicon_pic {
                 width: 100% !important;
             }
 
@@ -75,7 +75,7 @@
                 padding: 0;
                 justify-content: center;
             }
-            #socialicon {
+            #socialicon_pic {
                 width: 100% !important;
             }
             #iconrowbot {
@@ -115,7 +115,7 @@
                 height: 3em;
             }
 
-            #socialicon {
+            #socialicon_pic {
                 width: 100%;
             }
 
@@ -176,7 +176,7 @@
             <ul class="navbar-nav m-auto p-2">
                 <li class="nav-item px-1"></li>
                 <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
-                    <input class="form-control mr-sm-2 rounded-pill" id="query" name="query" type="search"
+                    <input class="form-control mr-sm-2 rounded-pill" required id="query" name="query" type="search"
                         placeholder="Search" aria-label="Search" />
                     <button type="submit" style="background: none; border: none;">
                         <i class="fas fa-search"></i>
@@ -226,16 +226,16 @@
                             <div class="dropdown-menu dropdown-primary">
                                 <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
                                 <a class="dropdown-item" href="{% url 'register' %}">Register</a>
-                                <a class="dropdown-item pcon" href="#"><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}"
+                                <a class="dropdown-item pcon" href="#"><img id="socialicon_pic" src="{% static 'img/icons8-facebook.svg' %}"
                                         alt="" />
                                     Like</a>
-                                <a class="dropdown-item pcon" href="#"><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}"
+                                <a class="dropdown-item pcon" href="#"><img id="socialicon_pic" src="{% static 'img/icons8-instagram.svg' %}"
                                         alt="" />
                                     follow</a>
-                                <a class="dropdown-item pcon" href="#"><img id="socialicon"
+                                <a class="dropdown-item pcon" href="#"><img id="socialicon_pic"
                                         src="{% static 'img/icons8-google-maps.svg' %}" alt="" />
                                     Rate</a>
-                                <a class="dropdown-item pcon" href="#"><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}"
+                                <a class="dropdown-item pcon" href="#"><img id="socialicon_pic" src="{% static 'img/icons8-linkedin.svg' %}"
                                         alt="" />
                                     Connect</a>
                             </div>
@@ -247,10 +247,10 @@
             <div class="container row" id="icon2nav">
                 <p style="font-weight: 600;">Follow us</p>
                 <div class="row" id="iconrowbot">
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-facebook.svg' %}" alt="" /></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-instagram.svg' %}" alt="" /></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-google-maps.svg' %}" alt="" /></a>
-                    <a class="col-2" href=""><img id="socialicon" src="{% static 'img/icons8-linkedin.svg' %}" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-facebook.svg' %}" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-instagram.svg' %}" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-google-maps.svg' %}" alt="" /></a>
+                    <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-linkedin.svg' %}" alt="" /></a>
                 </div>
             </div>
         </div>

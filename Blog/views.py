@@ -203,7 +203,7 @@ def profile(request, pk):
 
 def search(request):
     query = request.GET['query']
-    if len(query) > 50:
+    if len(query) > 70:
         allPosts = Post.objects.none()
     else:
         allPostsTitle = Post.objects.filter(title__icontains=query)
@@ -213,5 +213,7 @@ def search(request):
     if allPosts.count() == 0:
         messages.error(
             request, "No search results found. Please refine your search!")
-    params = {'allPosts': allPosts, 'query': query}
+    allrec = Post.objects.filter(recommend=True)
+    recommended = allrec.filter(recommend=True).order_by('-id')[:3]
+    params = {'allPosts': allPosts, 'query': query, 'recommended': recommended}
     return render(request, 'Blog/search.html', params)

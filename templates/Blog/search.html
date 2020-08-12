@@ -1,3 +1,109 @@
-{% for post in allPosts %}
-    {{post.title}}
-{% endfor %}
+{% extends 'Blog/base.html' %}
+{% block body %}
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    @import url(./css/Nanotech/Nanotech\NormalItalic.otf);
+
+    body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    #zed {
+        background: rgba(0, 0, 0, 0.445);
+        border-radius: 10px;
+        background-size: cover;
+        height: 100%;
+    }
+
+    #trendcards {
+        height: 25vh;
+
+        background: url(https://images.unsplash.com/photo-1594032257107-9aa9bb3849c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+        background-size: cover;
+    }
+
+    #trendcards .h2 {
+        margin-top: 20%;
+    }
+
+    #trendcards p {
+        text-align: left;
+        color: white;
+    }
+
+
+    .card-body {
+        height: 100px;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    #a {
+        background: #fff;
+    }
+
+    .card {
+        margin-top: 20px !important;
+        box-shadow: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .card:hover {
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+        animation: backwards;
+    }
+
+    @media only screen and (max-width: 767px) {
+        #A-heading {
+            font-size: 27px !important;
+        }
+
+        .card-body {
+            position: absolute;
+            top: 1px !important;
+        }
+    }
+</style>
+<section>
+    <div class="container mt-4">
+        <h3 class="display-8" id="A-heading" style="font-weight: 600;">Search results for '{{query}}'</h3>
+        <hr />
+    </div>
+</section>
+
+<div class="container">
+
+    {% if not allPosts %}
+        <h1>No search results found. Please refine your search!</h1>
+        <br><br>
+    {% endif %}
+
+    {% for post in allPosts %}
+    <a href="{% url 'blog' post.id %}">
+        <div class="row extend-sm">
+            <div class="col-md-12">
+                <div class="card " style="background: url({{post.cover.url}});background-size: cover;" id="trendcards">
+                    <div class=" " id="zed">
+                        <h3 class="display-8 mt-2 ml-5" id="A-heading" style="font-weight: 600;color: bisque;">
+                            {{post.title}}</h3>
+                        <p class="ml-5">{{post.post_writer}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
