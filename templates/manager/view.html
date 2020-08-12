@@ -14,7 +14,12 @@
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/article_style.css' %}" />
   <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
-  <style></style>
+  <style>
+    .btn-round {
+      border-radius: 50px;
+      padding: 15px 32px;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,14 +35,6 @@
       <span class="navbar-toggler-icon ml-auto" id="mobmen"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarnav">
-
-      <ul class="navbar-nav m-auto p-2">
-
-        <li class="nav-item px-3">
-          <a href="{% url 'manager_home'  %}" class="nav-link"> Back</a>
-        </li>
-      </ul>
-
 
     </div>
   </nav>
@@ -90,7 +87,12 @@
     </div>
   </div>
 
+  <section>
+    <div class="container" id="Approve">
+      <a href="{% url 'manager_home'  %}" class=" btn btn-round mt-2 mb-2 btn-info"> Back</a>
 
+    </div>
+  </section>
   <br><br><br>
 
 
