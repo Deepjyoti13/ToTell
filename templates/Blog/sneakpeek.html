@@ -1,4 +1,13 @@
 {% extends 'Blog/category.html' %}
+<style>
+    .h2 {
+        color: white;
+        font-family: 'Montserrat';
+        font-size: 20px;
+        font-weight: bold;
+    }
+  </style>
+{% block link %}{% url 'sneakpeek' %}{% endblock %}
 {% block SP %}active{% endblock %}
 {% block bread %}SNEAK PEEK{% endblock %}
 {% block heading %}SNEAK PEEK{% endblock %}
