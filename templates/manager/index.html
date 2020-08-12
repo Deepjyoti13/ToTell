@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>TOTELL EXPRESS | ADMIN</title>
+  <link rel="icon" href="" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/admin_style.css' %}" />
+  <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
+  <style></style>
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <!--top nav-->
+
+  <div class="" style="background: white;">
+    <a href="">
+      <img src="{% static '/img/totell-e1559974619203.png' %}" id="logo" alt="" />
+    </a>
+    <nav class="navbar navbar-light fixed-top navbar-expand-sm" id="topnav">
+      <div id="fom">
+        <p>ADMIN</p>
+      </div>
+    </nav>
+
+  </div>
+
+  <!--bottom nav-->
+
+  <section>
+    <div class="container mt-5">
+
+      <h1 class="display-1" id="Ax-heading">welcome <span style="font-weight: 800;">Admin {{user.username}}</span></h1>
+
+
+    </div>
+  </section>
+
+  <!-- message  -->
+  <div class="text-center">
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+  </div>
+
+  <!--ARTICAL Start-->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">NEW ARTICLE REQUESTS</h3>
+
+
+    </div>
+  </section>
+
+  <!--new ARTICAL request Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+
+
+      <div class="row extend-sm">
+
+
+
+        {% for post in new_post %}
+        <a class="col-md-3" href="{% url 'preview' post.id %}">
+          <div class="card text-center" style="background: url({{post.cover.url}});
+          background-size: cover;" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">{{post.title}}</p>
+              <p>{{post.time}} minute read</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+
+
+        <a class="col-md-3" href="{% url 'view_all' %}">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">See all requests</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!--new ARTICAL request ends-->
+
+
+  <!-- trending section  -->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">TRENDING</h3>
+
+
+    </div>
+  </section>
+
+  <!--ARTICAL Start-->
+
+  <section class=" p-4" id="trending">
+    <div class="container">
+      <div class="row extend-sm">
+
+        {% for post in trending %}
+        <a class="col-md-3" href="{% url 'view' post.id %}">
+          <div class="card text-center" style="background: url({{post.cover.url}});
+          background-size: cover;" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">{{post.title}}</p>
+              <p>{{post.time}} minute read</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+  <!-- trending section ends -->
+
+  <!-- recommended section starts -->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">RECOMMENDED</h3>
+
+
+    </div>
+  </section>
+
+  <!--ARTICAL Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+      <div class="row extend-sm">
+
+        {% for post in recommended %}
+        <a class="col-md-3" href="{% url 'view' post.id %}">
+          <div class="card text-center" style="background: url({{post.cover.url}});
+          background-size: cover;" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">{{post.title}}</p>
+              <p>{{post.time}} minute read</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+
+
+        <a class="col-md-3" href="{% url 'view_all_posts' %}">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">See all posts</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- categories count  -->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">CATEGORIES</h3>
+
+
+    </div>
+  </section>
+  <!--ARTICAL Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+
+
+      <div class="row extend-sm">
+
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">Sneakpeek</p>
+              <p>{{Sneak_Peek}} posts</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">Events</p>
+              <p>{{Events}} posts</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">Lifestyle</p>
+              <p>{{Lifestyle}} posts</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">trends</p>
+              <p>{{Trends}} posts</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">Sneakpeek</p>
+              <p>{{Science}} posts</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ads  -->
+  <section>
+    <div class="container mt-5">
+
+      <h3 class="display-5" id="A-heading">ADs</h3>
+
+
+    </div>
+  </section>
+  <!--ARTICAL Start-->
+  <section class=" p-4" id="trending">
+    <div class="container">
+
+
+      <div class="row extend-sm">
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">AD 1</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">AD 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">AD 1</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center" id="trendcards">
+            <div class="" id="z">
+              <p class="h2">AD 1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--footer-->
+
+  <!--quick links-->
+
+
+  <!-- logout  -->
+  <section>
+    <div class="container" id="logout">
+      <a href="{% url 'manager_logout' %}" class="btn btn-dark mt-3 mb-5">Logout</a>
+    </div>
+  </section>
+
+
+  <!--footer-->
+  <footer class="bg-dark text-center " style="width: 100vw; padding-bottom: 5px;padding-top: 5px;">
+    <p class="lead" id="foot">Totell express admin</p>
+  </footer>
+
+
+  <!-- End your project here-->
+
+
+</body>
+<script>
+  $(".carousel").carousel({
+    interval: 5000,
+    pause: "hover",
+  });
+</script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript"></script>
+<script src="./index.js"></script>
+
+</html>

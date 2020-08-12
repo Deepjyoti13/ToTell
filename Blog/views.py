@@ -23,6 +23,7 @@ def home(request):
         latest1 = allPosts[:1]
         latest2 = allPosts[1:2]
         latest3 = allPosts[2:3]
+
     recommended = allPosts.filter(recommend=True)[:3]
     if len(recommended) > 3:
         r1 = recommended[len(recommended)-1]
@@ -30,6 +31,7 @@ def home(request):
     else:
         r1 = recommended[:1]
         r2 = recommended[1:]
+        
     trending = allPosts.order_by('-view')[:3]
     context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended, 'r1': r1, 'r2': r2, 'trending': trending}
     return render(request, "Home/home.html", context)
@@ -58,6 +60,7 @@ def loginPage(request):
             return redirect('home')
         else:
             messages.info(request, 'Username OR password is incorrect')
+            return redirect('login')
 
     context = {}
     return render(request, 'Home/login.html', context)
