@@ -14,7 +14,12 @@
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/article_style.css' %}" />
   <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
-  <style></style>
+  <style>
+    .btn-round {
+      border-radius: 50px;
+      padding: 15px 32px;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,21 +36,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarnav">
 
-      <ul class="navbar-nav m-auto p-2">
-        <li class="nav-item px-3 active">
-          <a href="{% url 'approve' post.id %}" class="nav-link">approve</a>
-        </li>
 
-        <li class="nav-item px-3">
-          <a href="{% url 'declined' post.id %}" class="nav-link"> Decline</a>
-        </li>
-        <li class="nav-item px-3">
-          <a href="{% url 'delete' post.id %}" class="nav-link"> Delete</a>
-        </li>
-        <li class="nav-item px-3">
-          <a href="{% url 'manager_home'  %}" class="nav-link"> Back</a>
-        </li>
-      </ul>
 
 
     </div>
@@ -98,6 +89,27 @@
       <hr>
     </div>
   </div>
+
+  <section>
+    <div class="container" id="Approve">
+      <a href="{% url 'approve' post.id %}" class=" btn btn-round mt-2 mb-2  btn-success">Approve</a>
+    </div>
+  </section>
+  <section>
+    <div class="container" id="Approve">
+      <a href="{% url 'declined' post.id %}" class=" btn btn-round mt-2 mb-2 btn-warning"> Decline</a>
+    </div>
+  </section>
+  <section>
+    <div class="container" id="Approve">
+      <a href="{% url 'delete' post.id %}" class="   btn btn-round mt-2 mb-2 btn-danger"> Delete</a>
+    </div>
+  </section>
+  <section>
+    <div class="container" id="Approve">
+      <a href="{% url 'manager_home'  %}" class=" btn btn-round mt-2 mb-2 btn-info"> Back</a>
+    </div>
+  </section>
 
 
   <br><br><br>
