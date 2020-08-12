@@ -111,7 +111,7 @@
         <form action="{% url 'postComment' %}" method="POST"> {% csrf_token %}
           <div class="form-group">
             <label for="comment">Post a comment</label>
-            <input type="text" id="comment" class="form-control my-1" name="comment" placeholder="Enter your comment...">
+            <input type="text" id="comment" class="form-control my-1" name="comment" placeholder="Enter your comment..." required>
           </div>
           <input type="hidden" name="postID" value="{{ post.id }}">
           <input type="submit" class="btn btn-primary" name="submit" value="Comment">
