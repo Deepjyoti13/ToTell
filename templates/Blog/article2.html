@@ -29,11 +29,11 @@
                 <div class="container" id="writerbox">
                   <div class="row m-2 mb-3 mt-3 p-2" style="box-shadow: 0 5px 20px rgba(0, 0, 0, 0.233);">
                     <div class="col-md-1">
-                      <img class="rounded-circle" style="width: 100%;" src="https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=522&q=80" alt="">
+                      <img class="rounded-circle" style="width: 100%;" src="{{ post.post_writer.profile_pic.url }}" alt="">
                     </div>
                     <div class="col-md-10">
-                      <h3 class="m-0 p-0">date</h3>
-                      <a href=""><p class="m-0 p-0 ">name</p></a>
+                      <h3 class="m-0 p-0">{{ post.timestamp|date }}</h3>
+                      <a href="{% url 'profile' post.post_writer.id %}"><p class="m-0 p-0 ">{{ post.post_writer }}</p></a>
                     </div>
                   </div>
                 </div>
@@ -55,7 +55,6 @@
     <div class="container mt-3">
         <div class="row">
             <p class="lead mt-3" id="para1">{{post.content|safe}}</p>
-            <hr>
         </div>
     </div>
     <!-- Ad -->
