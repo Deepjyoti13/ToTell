@@ -88,7 +88,7 @@ def accountSettings(request):
         form = WriterForm(request.POST, request.FILES, instance=writer)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('writewithus')
     context = {'form': form}
     return render(request, 'Home/account_settings.html', context)
 
