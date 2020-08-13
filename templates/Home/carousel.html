@@ -12,10 +12,10 @@
             <img src="{{ r1.cover.url }}" alt="" id="a1" />
           </a>
           <div class="carousel-caption" id="carcap">
-            <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
-              {{ r1.post_writer }}</h5>
+            <h5 class="fancy display-5 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
+              {{ r1.title }}</h5>
             <p class="lead">
-              {{ r1.title }}
+              {{ r1.post_writer }}
             </p>
             <p>{{ r1.time }}</p>
           </div>
@@ -23,14 +23,14 @@
         {% endfor %}
         {% for rec in r2 %}
         <div class="carousel-item">
-          <a href="">
+          <a href="{% url 'blog' rec.id %}">
             <img src="{{ rec.cover.url }}" alt="" id="a1" />
           </a>
           <div class="carousel-caption" id="carcap">
-            <h5 class="fancy display-1 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
-              {{ rec.post_writer }}</h5>
+            <h5 class="fancy display-5 font-weight-bold animated fadeInUp" style="animation-delay: 1s;">
+              {{ rec.title }}</h5>
             <p class="lead">
-              {{ rec.title }}
+              {{ rec.post_writer }}
             </p>
             <p>{{ rec.time }}</p>
           </div>

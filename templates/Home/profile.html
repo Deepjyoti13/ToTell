@@ -6,21 +6,15 @@
 
 <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 <header>
-
     <div class="container">
-
         <div class="profile">
-
             <div class="profile-image">
-
                 <img class="prof-pic" src="{{writer.profile_pic.url}}" alt="">
-
             </div>
             <div class="profile-user-settings">
-                <h1 class="profile-user-name">{{writer.user.username}}</h1>
+                <h1 class="profile-user-name" style="">{{writer.user.username}}</h1>
             </div>
             <div class="profile-stats">
-
                 <ul>
                     {% if writer.facebook %}
                     <li><a href="{{writer.facebook}}"><span class="profile-stat-count"><img id="profile_icon"
@@ -59,10 +53,10 @@
         <div class="col-md-4">
             <a href="{% url 'blog' post.id %}">
                 <div class="card-text-center">
-                    <div class="card body " id="latest3" style="background: url({{post.cover.url}});
-                    background-size: cover;">
-                        <div id="latest11">
-                            <h3>{{post.title}}</h3>
+                    <div class="card p-2" style="background: url({{ post.cover.url }});
+                    background-size: cover; height: 30vh;">
+                        <div>
+                            <h3 style="color: white;">{{post.title}}</h3>
                         </div>
                     </div>
                 </div>
