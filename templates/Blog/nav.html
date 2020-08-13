@@ -35,8 +35,13 @@
             border-radius: 50px !important;
         }
 
-        .active, .nav-link:hover {
+        .nav-link:hover {
             background: rgba(3, 35, 104, 0.089) !important;
+        }
+
+        #active {
+            color: yellowgreen;
+            font-size: 20px;
         }
 
         @media only screen and (max-width: 991px) {
@@ -181,19 +186,19 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <li class="nav-item px-2" class="{% block SP %}{% endblock %}">
+                <li class="nav-item  px-2" id="{% block sneakpeekactive %} {% endblock sneakpeekactive %}">
                     <a href="{% url 'sneakpeek' %}" class="nav-link">SNEAK-PEAK</a>
                 </li>
-                <li class="nav-item px-2 {% block E %}{% endblock %}">
+                <li class="nav-item px-2 {% block eventactive %} {% endblock eventactive %}">
                     <a href="{% url 'events' %}" class="nav-link">EVENTS</a>
                 </li>
-                <li class="nav-item px-2 {% block LS %}{% endblock %}">
+                <li class="nav-item {% block lifestyleactive %}{% endblock lifestyleactive %} px-2">
                     <a href="{% url 'lifestyle' %}" class="nav-link">LIFESTYLE</a>
                 </li>
-                <li class="nav-item px-2 {% block T %}{% endblock %}">
+                <li class="nav-item px-2 {% block trendsactive %} {% endblock trendsactive %}">
                     <a href="{% url 'trends' %}" class="nav-link"> TRENDS</a>
                 </li>
-                <li class="nav-item px-2 {% block ST %}{% endblock %}">
+                <li class="nav-item px-2 {% block techactive %} {% endblock techactive %}">
                     <a href="{% url 'sciencetech' %}" class="nav-link">TECHNOLOGY</a>
                 </li>
 
