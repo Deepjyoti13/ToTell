@@ -202,7 +202,9 @@ def like(request, pk):
 def profile(request, pk):
     writer = Writer.objects.get(id=pk)
     posts = writer.tags.filter(approve=True)
-    context = {'writer': writer, 'posts': posts}
+    allPosts = Post.objects.filter(approve=True)
+    recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
+    context = {'writer': writer, 'posts': posts, 'recommended': recommended}
     return render(request, 'Home/profile.html', context)
 
 def search(request):
