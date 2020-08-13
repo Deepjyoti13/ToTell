@@ -145,4 +145,10 @@ body {
     #nolike {
         text-align: center;
     }
+    #writerbox{
+        text-align: center;
+    }
+      #writerbox .col-md-10{
+        margin-top: 20px;
+    }
 }
