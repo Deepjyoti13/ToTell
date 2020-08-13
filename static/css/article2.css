@@ -147,9 +147,6 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-    #nolike {
-        text-align: center;
-    }
     #writerbox{
         text-align: center;
     }
