@@ -7,15 +7,15 @@
 <div class="container mt-5">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% block link %}{% endblock %}">{% block bread %}{% endblock %}</a></li>
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href=" ">{% block bread %}{% endblock %}</a></li>
     </ol>
   </nav>
 </div>
 <!--ARTICAL Start-->
 <section>
   <div class="container mt-3">
-    <h3 class="display-5" id="A-heading" style="font-weight: 800;font-style: italic;"><i
+    <h3 style="font-weight: 800; font-style: italic; font-size: 1.5em;"><i
         class="fas fa-eye mr-2"></i>{% block heading %}{% endblock %}</h3>
   </div>
 </section>
@@ -31,7 +31,7 @@
 <!--writer 1-->
 <section>
   <div class="container mt-3">
-    <h3 class="display-5" id="A-heading">FEATURED IN {% block feat %}{% endblock %}</h3>
+    <h3 class="ml-4" style="font-size: 1em; font-weight: 500;">FEATURED IN {% block feat %}{% endblock %}</h3>
   </div>
 </section>
 <!--Big header-->

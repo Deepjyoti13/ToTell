@@ -79,7 +79,7 @@ def account_details(request):
             return redirect('home')
         else:
             messages.error(request, "Kindly fill the details properly!")
-            return redirect("")
+            return redirect(" ")
     context = {'form': form}
     return render(request, 'Home/account_details.html', context)
 

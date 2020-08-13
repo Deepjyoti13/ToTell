@@ -7,24 +7,31 @@
 {% block feat %}SNEAK PEEK{% endblock %}
 {% block feattrend %}
 {% if s1 %}
-    <div class="card text-center" id="trendcards" style="background: url({{s1.cover.url}});">
-        <a href="{% url 'blog' s1.id %}">
-            <div class="card-body " id="big">
-                <p><span class="h2" style="color:white; font-size: 50px;">{{s1.title}}</span></p>
-                <p>{{s1.time}} minute read</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card text-center"
+                style="background: url({{ s1.cover.url }}); background-size: cover; min-height: 40vh;">
+                <div class="card-body "
+                    style="width: 100%; height: 100%; color: white; background: rgba(0, 0, 0, 0.349); border-radius: 10px; padding: 3rem;">
+                    <p class="h2">{{ s1.title }}</p>
+                    <p>{{ s1.time }} minute read</p>
+                </div>
             </div>
-        </a>
+        </div>
     </div>
+</div>
 {% else %}
-    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+<h2>No article has been posted on this topic yet. Stay Tuned!</h2>
 {% endif %}
 {% endblock %}
 {% block trendcards %}
 {% for sp in sneakpeek %}
 <div class="col-md-3">
     <a href="{% url 'blog' sp.id %}">
-        <div class="card text-center" id="trendcards" style="background: url({{sp.cover.url}});">
-            <div class="" id="z">
+        <div class="card text-center"
+            style="background: url({{sp.cover.url}}); background-size: cover; height: 30vh; color: white">
+            <div style="border-radius: 10px; background: linear-gradient(to bottom right, rgba(194, 87, 0, 0.281), rgba(0, 0, 0, 0.664)); height: 100%; padding: 2rem;">
                 <p class="h2">{{sp.title}}</p>
                 <p>{{sp.time}} minute read</p>
             </div>
