@@ -69,17 +69,19 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-def account_details(request):
+def details(request):
     writer = request.user.writer
     form = WriterForm(instance=writer)
     if request.method == 'POST':
         form = WriterForm(request.POST, request.FILES, instance=writer)
+        form.email = request.user.email
         if form.is_valid():
             form.save()
             return redirect('home')
         else:
+            print(form.errors)
             messages.error(request, "Kindly fill the details properly!")
-            return redirect(" ")
+            return redirect("details")
     context = {'form': form}
     return render(request, 'Home/account_details.html', context)
 
