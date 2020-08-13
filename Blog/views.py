@@ -10,10 +10,6 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 
 def home(request):
-    if request.user.is_authenticated:
-        if not request.user.writer.bio:
-            messages.error(request, "Please fill in your details!")
-            return redirect("details")
     allPosts = Post.objects.filter(approve=True)
     if len(allPosts) > 3:
         latest1 = allPosts[len(allPosts)-1:len(allPosts)]
@@ -97,6 +93,9 @@ def accountSettings(request):
     return render(request, 'Home/account_settings.html', context)
 
 def writewithus(request):
+    if request.user.is_authenticated and not request.user.writer.bio:
+        messages.error(request, "Please fill in your details!")
+        return redirect("details")
     if request.user.is_authenticated:
         writer = request.user
         form = PostForm(
