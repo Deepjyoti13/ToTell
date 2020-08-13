@@ -1,12 +1,5 @@
 {% extends 'Blog/category.html' %}
-<style>
-    .h2 {
-        color: white;
-        font-family: 'Montserrat';
-        font-size: 20px;
-        font-weight: bold;
-    }
-  </style>
+
 {% block link %}{% url 'sneakpeek' %}{% endblock %}
 {% block SP %}active{% endblock %}
 {% block bread %}SNEAK PEEK{% endblock %}
@@ -17,7 +10,7 @@
     <div class="card text-center" id="trendcards" style="background: url({{s1.cover.url}});">
         <a href="{% url 'blog' s1.id %}">
             <div class="card-body " id="big">
-                <p class="h2">{{s1.title}}</p>
+                <p><span class="h2" style="color:white; font-size: 50px;">{{s1.title}}</span></p>
                 <p>{{s1.time}} minute read</p>
             </div>
         </a>
