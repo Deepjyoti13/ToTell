@@ -11,6 +11,12 @@
             color: black;
         }
 
+        #totell{
+            width: 100%;
+        }
+        #totell2{
+            display: none;
+        }
         #a {
             background: #fff;
         }
@@ -35,13 +41,8 @@
             border-radius: 50px !important;
         }
 
-        .nav-link:hover {
+        .active, .nav-link:hover {
             background: rgba(3, 35, 104, 0.089) !important;
-        }
-
-        #active {
-            color: yellowgreen;
-            font-size: 20px;
         }
 
         @media only screen and (max-width: 991px) {
@@ -61,15 +62,15 @@
             #socialicon_pic {
                 width: 100% !important;
             }
-
-            #navbarnav {
-                height: 100vh !important;
+            #totell{
+            width: 100%;
             }
+            
 
             #icon2nav {
                 display: flex;
                 justify-content: center;
-                margin: 10vh 0 0 0 !important;
+                margin: 2vh 0 0 0 !important;
                 padding: 0;
                 text-align: center;
             }
@@ -86,7 +87,7 @@
                 justify-content: center;
                 display: flex;
                 flex-direction: row;
-                padding-bottom: 10vh !important;
+                padding-bottom: 1vh !important;
             }
 
             #iconrowbot i {
@@ -115,22 +116,29 @@
             #mobmen {
                 background-image: url({% static 'img/button.svg' %});
 
-                width: 2em;
-                height: 2em;
+                width: 3em;
+                height: 3em;
             }
 
             #socialicon_pic {
                 width: 100%;
             }
-
+            #totell{
+            width: 100%;
+            display: none;
+            }
+            #totell2{
+                width: 50%;
+                display: block;
+            }
+            
             #navbarnav {
-                height: 100vh;
+                height: 90.5vh;
             }
 
             #icon2nav {
                 display: flex;
                 justify-content: center;
-
                 margin: 0 0 0 0;
                 padding: 0;
                 text-align: center;
@@ -155,6 +163,7 @@
                 padding: 0;
             }
         }
+        
     </style>
 {% endblock %}
     <!--carousel-->
@@ -162,7 +171,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-1">
-                    <a href="/"><img src="{% static 'img/totell-e1559974619203.png' %}" style="width: 100%;" alt="" /></a>
+                    <a href="/"><img src="{% static 'img/totell-e1559974619203.png' %}" id="totell" style="width: 100%;" alt="" /></a>
                 </div>
                 <div class="display-6 col-md-10 mt-4 text-right">Totell Express</div>
             </div>
@@ -178,8 +187,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarnav">
             <ul class="navbar-nav m-auto p-2">
-                <li class="nav-item px-1"></li>
-                <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+                <li class="nav-item px-1">
+                    <a href="/"><img src="{% static 'img/totell-e1559974619203.png' %}" id="totell2" alt="" /></a>
+                </li>
+                <form class="form-inline my-lg-0" method="GET" action="{% url 'search' %}">
                     <input class="form-control mr-sm-2 rounded-pill" required id="query" name="query" type="search"
                         placeholder="Search" aria-label="Search" />
                     <button type="submit" style="background: none; border: none;">
@@ -249,7 +260,7 @@
             </ul>
 
             <div class="container row" id="icon2nav">
-                <p style="font-weight: 600;">Follow us</p>
+                <!-- <p style="font-weight: 600;">Follow us</p> -->
                 <div class="row" id="iconrowbot">
                     <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-facebook.svg' %}" alt="" /></a>
                     <a class="col-2" href=""><img id="socialicon_pic" src="{% static 'img/icons8-instagram.svg' %}" alt="" /></a>
