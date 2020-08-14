@@ -14,7 +14,7 @@
       <hr class="three">
       <div class="row extend-sm">
         {% for trend in trending %}
-        <a class="col-md-3" href="">
+        <a class="col-md-3" href="{% url 'blog' trend.id %}">
           <div>
             <div class="card text-center" style="background: url({{trend.cover.url}});
           background-size: cover;" id="trendcards">
