@@ -3,6 +3,11 @@
 {% block head %}
 <title>TOTELL EXPRESS | {{post.title}}</title>
 <link rel="stylesheet" href="{% static 'css/article2.css' %}">
+<style>
+    input:focus{
+        border: solid 2px rgba(0, 140, 255, 0.685) !important;
+    }
+</style>
 {% endblock %}
 {% block body %}
     <div class="container mt-5">
@@ -68,10 +73,10 @@
         </div>
     </div> -->
     <!--writer 2-->
-    <section>
+    <!-- <section>
         <div class="container mt-3">
         </div>
-    </section>
+    </section> -->
     <!--Article End-->
     <div class="container">
         <div class="row">
@@ -96,28 +101,33 @@
             </form>
         </div>
     </div>
-    <div class="container">
-        <h2>Comments ({{comments.count}})</h2>
+    <div class="container mt-5">
         <form action="{% url 'postComment' %}" method="POST"> {% csrf_token %}
-          <div class="form-group">
-            <label for="comment">Post a comment</label>
-            <input type="text" id="comment" class="form-control my-1" name="comment" placeholder="Enter your comment..." required>
-          </div>
-          <input type="hidden" name="postID" value="{{ post.id }}">
-          <input type="submit" class="btn btn-primary" name="submit" value="Comment">
+            <h3 class="">Write a comment ({{comments.count}})</h3>
+            <div class="row">
+                <div class="col-md-7">
+                    <input name="comment" id="comment-bar" class="w-100 " style="border-radius: 10px;border: solid 2px rgba(72, 107, 136, 0.685);height: 45px;" type="text" required>
+                    <input type="hidden" name="postID" value="{{ post.id }}">
+                    <button type="submit" class="btn btn-dark mx-0 my-3" style="border-radius: 10px;box-shadow: none;">Comment</button>
+                </div>
+            </div>
         </form>
         {% for message in messages %}
-        {{message}}
+            {{message}}
         {% endfor %}
         {% for comment in comments %}
-        <div class="row my-3">
-          <div class="col-md-1"><img class="w-100 p-2" src="{{comment.user.writer.profile_pic.url}}"></div>
-          <div class="col-md-11"><b>{{comment.user.username}}</b> <small>on
-              {{comment.timestamp}}</small><br>{{comment.comment}}</div>
+        <div class="card my-2" style="box-shadow: none;background: #0084ff17;border-radius: 15px;border-right: solid 5px rgb(0, 183, 255);border-left: solid 5px rgb(0, 183, 255);">
+                <div class="" style="max-width: 15%;">
+                    <img class="mb-1 " style="border-radius: 10px;width: 60px;height: 60px;object-fit: cover;object-position: top;" src="{{comment.user.writer.profile_pic.url}}" alt="">
+                </div>
+              <h5 class="card-title my-0">{{comment.user.username}}</h5>
+              <h6 class="card-title my-0">{{comment.timestamp}}</h6>
+              <p class="card-text">
+                {{comment.comment}}
+              </p>
         </div>
-        <hr class="mr-5 ml-5">
         {% endfor %}
-      </div>
+    </div>
       <hr class="m-5">
     <!--links-->
     <div class="container mt-5">
@@ -126,7 +136,13 @@
                 <h3 class="disply-3">Share the Article</h3>
                 <hr>
                 <div id="middleicon p-3">
-                    <i class="fa fa-facebook-official fa-2x p-2"></i>
+                    <a href="https://www.facebook.com/sharer.php?u=http://127.0.0.1:8000/blog/{{ post.id }}/" target="_blank">
+                        <i class="fa fa-facebook-official fa-2x p-2"></i>
+                    </a>
+                    <a href="whatsapp://send?text=http://127.0.0.1:8000/blog/{{ post.id }}/" target="_blank">
+                        <i class="fa fa-whatsapp fa-2x p-2" aria-hidden="true"></i>
+                    </a>
+                    <i class="fa fa-instagram fa-2x p-2" aria-hidden="true"></i>
                     <i class="fa fa-instagram fa-2x p-2" aria-hidden="true"></i>
                     <i class="fa fa-pinterest fa-2x p-2" aria-hidden="true"></i>
                     <i class="fa fa-whatsapp fa-2x p-2" aria-hidden="true"></i>
