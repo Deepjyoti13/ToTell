@@ -11,9 +11,7 @@ urlpatterns = [
     path("postComment/", views.postComment, name="postComment"),
     path(
         "reset_password/",
-        auth_views.PasswordResetView.as_view(
-            template_name="Home/password_reset.html"
-        ),
+        auth_views.PasswordResetView.as_view(template_name="Home/password_reset.html"),
         name="reset_password",
     ),
     path(

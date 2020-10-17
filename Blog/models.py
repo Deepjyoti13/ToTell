@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.timezone import now
 
-# from ckeditor_uploader.fields import RichTextUploadingField
 from Home.models import *
 from tinymce import models as tinymce_models
 
@@ -42,10 +41,9 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     cover = models.ImageField(upload_to="Blog Image", blank=True)
     content = tinymce_models.HTMLField()
-    # content = RichTextUploadingField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     approve = models.BooleanField(default=False)
-    declined=models.BooleanField(default=False)
+    declined = models.BooleanField(default=False)
     recommend = models.BooleanField(default=False)
     time = models.IntegerField()
     likes = models.ManyToManyField(User, related_name="blog_posts", blank=True)
