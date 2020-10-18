@@ -5,7 +5,11 @@ document.head.appendChild(script);
 script.onload = function () {
     tinymce.init({
         selector: '#id_content',
+<<<<<<< HEAD
         width: 100,
+=======
+        width: 500,
+>>>>>>> ea2ff61d147db05577e052d7159c74a11000e594
         height: 300,
         plugins: [
             'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak',
