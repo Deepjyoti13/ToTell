@@ -5,8 +5,6 @@ document.head.appendChild(script);
 script.onload = function () {
     tinymce.init({
         selector: '#id_content',
-        width: 400,
-        height: 300,
         plugins: [
             'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak',
             'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
