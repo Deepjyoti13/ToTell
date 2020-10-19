@@ -9,25 +9,48 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>TOTELL EXPRESS</title>
   <link rel="icon" href="" type="image/x-icon" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/article.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
   {% block head %} {% endblock %}
   <script src="https://kit.fontawesome.com/a480d15915.js" crossorigin="anonymous"></script>
   <style>
-    #mobmen {
-      background-image: url({% static "img/button.svg" %});
-    }
+  #toplogo {
+    height: 60px;
+  }
+  #footerlogo {
+    width: 100%;
+  }
+  @media screen and (max-width: 992px) {
+    #footerlogo {
+      width: 60%;
+    } 
+  }
+  .navbar-toggler-icon {
+    background-image: url({% static 'img/buttonx.svg' %}) !important;
+  }
   </style>
 </head>
 <body>
   <!-- Start your project here-->
 
-  {% include 'Blog/nav.html' %} {% block body %} {% endblock body %}
+  {% include 'Blog/navbar.html' %} {% block body %} {% endblock body %}
   <!--quick links-->
-  {% include 'Blog/bottom.html' %}
+  {% include 'Blog/footer.html' %}
 
 </body>
 <script>
@@ -36,5 +59,4 @@
     pause: "hover",
   });
 </script>
-<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
 </html>

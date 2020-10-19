@@ -183,7 +183,7 @@ def blog(request, pk):
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
     trending = allPosts.order_by('-view')[:4]
     context = {'post': post, 'comments': comments, 'liked': liked, 'trending': trending, 'recommended': recommended}
-    return render(request, "Blog/article2.html", context)
+    return render(request, "Blog/article.html", context)
 
 def like(request, pk):
     if request.user.is_authenticated:

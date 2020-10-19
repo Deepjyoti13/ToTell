@@ -1,0 +1,308 @@
+{% extends 'Blog/base.html' %}
+{% load static %}
+{% block head %}
+<title>TOTELL EXPRESS | {{post.title}}</title>
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  input:focus {
+    border: solid 2px rgba(0, 140, 255, 0.685) !important;
+  }
+
+  #viewcar {
+    border-radius: 25px;
+    height: 60vh;
+    border-left: solid 5px cyan;
+    border-right: solid 5px cyan;
+  }
+
+  #viewcar img {
+    min-height: 100%;
+    object-fit: cover;
+  }
+
+  #infi {
+    font-size: 7vh;
+  }
+
+  #contentx {
+    width: 100%;
+  }
+
+  #contentx img {
+    width: 100%;
+  }
+
+  #minright {
+    font-size: 10px;
+    background: rgba(0, 132, 255, 0.8);
+  }
+
+  @media screen and (max-width: 992px) {
+    #infi {
+      display: none;
+    }
+
+  }
+</style>
+{% endblock %}
+{% block body %}
+<!--Navbar -->
+<div class="container text-center">
+  <form class="form-inline active-cyan-4 row w-md-75 mx-3 ">
+    <input class="col form-control form-control-sm mr-3 p-3 rounded-pill"
+      style="border-right: solid 5px rgb(1, 183, 255);border-left: solid 5px rgb(1, 183, 255);" type="text"
+      placeholder="Search" aria-label="Search">
+    <i class="fas fa-search text-white bg-dark py-2 px-4  rounded-pill" aria-hidden="true"></i>
+  </form>
+</div>
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="">
+        <h6 class="card-subtitle mb-1 text-muted">{{ post.blogType }}</h6>
+        <p class="mb-0">{{ post.timestamp|date }} <br> {{post.time}} minutes read | {{post.view.count}} views
+        </p>
+      </div>
+      <h1 style="font-weight: 800;">
+        {{ post.title }}
+      </h1>
+      <h6 class="pr-md-5">An important part of the article highlighted here before the article starts</h6>
+      <!-- Writer -->
+      <div class="p-3"
+        style="background: #8400ff17;border-radius: 15px;border-right: solid 5px rgba(119, 0, 255, 0.849);border-left: solid 5px rgba(119, 0, 255, 0.849);">
+        <div class="row py-0 px-3 ">
+          <div class="">
+            <img class="mb-1 "
+              style="border-radius: 10px;width: 60px;height: 60px;object-fit: cover;object-position: top;"
+              src="{{ post.post_writer.profile_pic.url }}" alt="">
+          </div>
+          <div class=" my-auto px-2">
+            <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer }}</h5>
+            <h6 class="card-title my-0" style="font-weight: 400;">{{ post.timestamp|date }}</h6>
+          </div>
+        </div>
+        <div>
+          <p style="color: #747373;font-weight: 400;font-size: .9rem;">{{ post.post_writer.bio }}</p>
+        </div>
+        <a href="{% url 'profile' post.post_writer.id %}" target="_blank"
+          class="rounded-pill bg-primary px-2 text-white border-red ">Stalk</a>
+      </div>
+      <!-- Share  -->
+      <div class="col-md-7 p-0">
+        <div class="row my-4 mx-1">
+          <a href="https://www.facebook.com/sharer.php?u=https://totellexpress.herokuapp.com/blog/{{ post.id }}/"
+            target="_blank" class="col-2 mx-1 py-2 px-2  text-center"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;">
+            <i class="fab fa-facebook-f text-primary"></i>
+          </a>
+          <a href="https://twitter.com/share?url=https://totellexpress.herokuapp.com/blog/{{ post.id }}/"
+            target="_blank" class="col-2 mx-1 py-2 px-2  text-center"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;">
+            <i class="fab fa-twitter text-info"></i>
+          </a>
+          <a class="col-2 mx-1 py-2 px-2  text-center" target="_blank"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;"
+            href="http://reddit.com/submit?url=https://totellexpress.herokuapp.com/blog/{{ post.id }}/">
+            <i class="fab fa-reddit-square text-danger"></i>
+          </a>
+          <a class="col-2 mx-1 py-2 px-2  text-center" target="_blank"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;"
+            href="whatsapp://send?text=https://totellexpress.herokuapp.com/blog/{{ post.id }}/">
+            <i class="fab fa-whatsapp text-success"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <img class="w-100 mb-2" src="{{ post.cover.url }}" alt="">
+      <div class="w-100" id="contentx">
+        {{post.content|safe}}
+      </div>
+      <!-- Likes -->
+      <div class="row">
+        <form action="{% url 'like_post' post.id %}" method="post">
+          {% csrf_token %}
+          {% if liked %}
+          <div class="col-md-1">
+            <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger"><i
+                class="like__icon fa fa-heart"></i></button>
+          </div>
+          {% else %}
+          <div class="col-md-1">
+            <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger"
+              style="justify-content: center;">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </button>
+          </div>
+          {% endif %}
+          <div class="col-md-11 ">
+            <p class="display-7">{{post.likes.count}} people like this article</p>
+          </div>
+        </form>
+      </div>
+      <!-- Share -->
+      <div class="col-md-7 p-0">
+        <br>
+        <h4 class="font-weight-bold">Share this article</h4>
+        <hr class="my-0">
+        <div class="row my-4 mx-1">
+          <a href="https://www.facebook.com/sharer.php?u=https://totellexpress.herokuapp.com/blog/{{ post.id }}/"
+            target="_blank" class="col-2 mx-1 py-2 px-2  text-center"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;">
+            <i class="fab fa-facebook-f text-primary"></i>
+          </a>
+          <a href="https://twitter.com/share?url=https://totellexpress.herokuapp.com/blog/{{ post.id }}/"
+            target="_blank" class="col-2 mx-1 py-2 px-2  text-center"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;">
+            <i class="fab fa-twitter text-info"></i>
+          </a>
+          <a class="col-2 mx-1 py-2 px-2  text-center" target="_blank"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;"
+            href="http://reddit.com/submit?url=https://totellexpress.herokuapp.com/blog/{{ post.id }}/">
+            <i class="fab fa-reddit-square text-danger"></i>
+          </a>
+
+          <a class="col-2 mx-1 py-2 px-2  text-center" target="_blank"
+            style="background: rgba(0, 0, 0, 0.062);border-radius: 5px;"
+            href="whatsapp://send?text=https://totellexpress.herokuapp.com/blog/{{ post.id }}/">
+            <i class="fab fa-whatsapp text-success"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Comments  -->
+      <div class="container mt-5">
+        <h3 class="">Write a comment ({{comments.count}})</h3>
+        <div class="row">
+          <div class="col-md-7">
+            <form action="{% url 'postComment' %}" method="POST"> {% csrf_token %}
+              <input name="comment" id="comment-bar" class="w-100 "
+                style="border-radius: 10px;border: solid 2px rgba(72, 107, 136, 0.685);height: 45px;" type="text"
+                required>
+              <input type="hidden" name="postID" value="{{ post.id }}">
+              <button type="submit" class="btn btn-dark mx-0 my-3"
+                style="border-radius: 10px;box-shadow: none;">Comment</button>
+            </form>
+          </div>
+        </div>
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        {% for comment in comments %}
+        <div class="p-3"
+        style="background: #0084ff17;border-radius: 15px;border-right: solid 5px rgb(0, 183, 255);border-left: solid 5px rgb(0, 183, 255);">
+        <div class="row py-0 px-3 ">
+            <div class="">
+                <img class="mb-1 "
+                    style="border-radius: 10px;width: 60px;height: 60px;object-fit: cover;object-position: top;"
+                    src="{{comment.user.writer.profile_pic.url}}"
+                    alt="">
+            </div>
+            <div class=" my-auto px-2">
+                <h5 class="card-title my-0" style="font-weight: 500;">{{comment.user.username}}</h5>
+                <h6 class="card-title my-0" style="font-weight: 400;">{{comment.timestamp}}</h6>
+            </div>
+        </div>
+        <div>
+            <p style="color: #747373;font-weight: 400;font-size: .9rem;">{{comment.comment}}</p>
+        </div>
+    </div>
+        {% endfor %}
+      </div>
+      <div class=" mt-5">
+        <div class="p-3"
+          style="background: #8400ff17;border-radius: 15px;border-right: solid 5px rgba(119, 0, 255, 0.849);border-left: solid 5px rgba(119, 0, 255, 0.849);">
+          <div class="row py-0 px-3 ">
+            <div class="">
+              <img class="mb-1 "
+                style="border-radius: 10px;width: 60px;height: 60px;object-fit: cover;object-position: top;"
+                src="{{ post.post_writer.profile_pic.url }}" alt="">
+            </div>
+            <div class=" my-auto px-2">
+              <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer }}</h5>
+              <h6 class="card-title my-0" style="font-weight: 400;">{{ post.timestamp|date }}</h6>
+            </div>
+          </div>
+          <div>
+            <p style="color: #747373;font-weight: 400;font-size: .9rem;">{{ post.post_writer.bio }}</p>
+          </div>
+          <a href="{% url 'profile' post.post_writer.id %}" target="_blank"
+            class="rounded-pill bg-primary px-2 text-white border-red ">Stalk</a>
+        </div>
+      </div>
+      <div class="my-4">
+        <a class="bg-dark p-2 px-3 text-white rounded-pill" href="{% url 'writewithus' %}">
+          <i class="fa fa-pen mr-2" style="color: rgb(156, 36, 255);"></i>Write with us
+        </a>
+      </div>
+    </div>
+    <!-- Trending -->
+    <div class="col-md-3 mt-3">
+      <h5 style="font-weight: 400;">Trending</h5>
+      <hr class="w-50 mx-0 black">
+      <div class=" card my-2 mx-0 p-0"
+          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+          <div
+              style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
+              <div class="card-body">
+                  <a href="#">
+                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
+                          words</h6>
+                  </a>
+                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
+                  <a href="#" class="card-link">Read</a>
+                  <br>
+                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
+              </div>
+          </div>
+      </div>
+      <div class=" card my-2 mx-0 p-0"
+          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+          <div
+              style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
+              <div class="card-body">
+                  <a href="#">
+                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
+                          words</h6>
+                  </a>
+                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
+                  <a href="#" class="card-link">Read</a>
+                  <br>
+                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
+              </div>
+          </div>
+      </div>
+      <div class=" card my-2 mx-0 p-0"
+          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+          <div
+              style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
+  
+              <div class="card-body">
+                  <a href="#">
+                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
+                          words</h6>
+                  </a>
+                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
+                  <a href="#" class="card-link">Read</a>
+                  <br>
+                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+
+</html>
