@@ -71,7 +71,7 @@
                     <a href="{% url 'blog' r1.id %}" class="text-white">
                         <h2>{{ r1.title }}</h2>
                         <h3>{{ r1.post_writer }}</h3>
-                        <p>{{ r1.time }} minutes read | {{ r1.view }} views</p>
+                        <p>{{ r1.time }} minutes read | {{ r1.view.count }} views</p>
                     </a>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <a href="{% url 'blog' r2.id %}" class="text-white">
                         <h2>{{ r2.title }}</h2>
                         <h3>{{ r2.post_writer }}</h3>
-                        <p>{{ r2.time }} minutes read | {{ r2.view }} views</p>
+                        <p>{{ r2.time }} minutes read | {{ r2.view.count }} views</p>
                     </a>
                 </div>
             </div>
