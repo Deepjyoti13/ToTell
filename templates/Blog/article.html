@@ -40,6 +40,7 @@
 
   #contentx img {
     width: 100%;
+    height: auto;
   }
 
   #minright {
@@ -148,7 +149,7 @@
           </div>
           {% endif %}
           <div class="col-md-11 ">
-            <p class="display-7">{{post.likes.count}} people like this article</p>
+            <p class="display-7">{{post.likes.count}} likes</p>
           </div>
         </form>
       </div>
@@ -218,6 +219,7 @@
             <p style="color: #747373;font-weight: 400;font-size: .9rem;">{{comment.comment}}</p>
         </div>
     </div>
+    <div class="my-2"></div>
         {% endfor %}
       </div>
       <div class=" mt-5">
@@ -251,55 +253,23 @@
     <div class="col-md-3 mt-3">
       <h5 style="font-weight: 400;">Trending</h5>
       <hr class="w-50 mx-0 black">
+      {% for trending in trending %}
       <div class=" card my-2 mx-0 p-0"
-          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+          style="width: 100%;box-shadow: none;background: url({{ trending.cover.url }}); background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
           <div
               style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
               <div class="card-body">
                   <a href="#">
-                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
-                          words</h6>
+                      <h6 class="card-title text-white" style="font-weight: 600;">{{ trending.title }</h6>
                   </a>
-                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
-                  <a href="#" class="card-link">Read</a>
+                  <h6 class="card-subtitle mb-2 text-light">{{ trending.blogType }}</h6>
+                  <a href="{% url 'blog' trending.id }" class="card-link">Read</a>
                   <br>
-                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
+                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">{{ trending.time }} minutes read | {{ trending.view}} views</a>
               </div>
           </div>
       </div>
-      <div class=" card my-2 mx-0 p-0"
-          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
-          <div
-              style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
-              <div class="card-body">
-                  <a href="#">
-                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
-                          words</h6>
-                  </a>
-                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
-                  <a href="#" class="card-link">Read</a>
-                  <br>
-                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
-              </div>
-          </div>
-      </div>
-      <div class=" card my-2 mx-0 p-0"
-          style="width: 100%;box-shadow: none;background: url(https://images.unsplash.com/photo-1603109933443-ef26e38d1063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
-          <div
-              style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
-  
-              <div class="card-body">
-                  <a href="#">
-                      <h6 class="card-title text-white" style="font-weight: 600;">A very beautiful article name of 10
-                          words</h6>
-                  </a>
-                  <h6 class="card-subtitle mb-2 text-light">Lifestyle</h6>
-                  <a href="#" class="card-link">Read</a>
-                  <br>
-                  <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">5 minutes read</a>
-              </div>
-          </div>
-      </div>
+      {% endfor %}
   </div>
   </div>
 </div>

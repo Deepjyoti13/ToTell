@@ -3,7 +3,7 @@
     style="box-shadow: none;border-bottom: solid 10px rgb(156, 36, 255);">
     <div class="container">
         <img id="toplogo" class="" src="{% static 'img/totell-e1559974619203.png' %}" alt="">
-        <a class="navbar-brand mb-n3 pb-0 pr-0 mr-0" href="#">Totell Express</a>
+        <a class="navbar-brand mb-n3 pb-0 pr-0 mr-0" href="/">Totell Express</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
             aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i> Profile </a>
+                        <i class="fas fa-user" style="color: rgb(156, 36, 255);"></i> Profile </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info"
                         aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item" href="{% url 'settings' %}">My account</a>
@@ -31,10 +31,10 @@
                 </a>
                 {% else %}
                 <a class="bg-dark p-2  text-white rounded-pill" href="{% url 'register' %}">
-                    <i class="fa fa-register" style="color: rgb(156, 36, 255);"></i>Register
+                    <i class="fa fa-registered mr-2" style="color: rgb(156, 36, 255);"></i>Register
                 </a>
                 <a class="bg-dark p-2  text-white rounded-pill" href="{% url 'login' %}">
-                    <i class="fa fa-sign-in" style="color: rgb(156, 36, 255);"></i>Login
+                    <i class="fa fa-sign-in mr-2" style="color: rgb(156, 36, 255);"></i>Login
                 </a>
                 {% endif %}
             </ul>

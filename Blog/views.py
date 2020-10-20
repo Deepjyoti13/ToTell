@@ -11,25 +11,17 @@ from django.http import HttpResponseRedirect
 
 def home(request):
     allPosts = Post.objects.filter(approve=True)
-    if len(allPosts) > 3:
-        latest1 = allPosts[len(allPosts)-1:len(allPosts)]
-        latest2 = allPosts[len(allPosts)-2:len(allPosts)-1]
-        latest3 = allPosts[len(allPosts)-3:len(allPosts)-2]
-    else:
-        latest1 = allPosts[:1]
-        latest2 = allPosts[1:2]
-        latest3 = allPosts[2:3]
+    latest = allPosts.order_by('-id')[:6]
 
-    recommended = allPosts.filter(recommend=True)[:3]
-    if len(recommended) > 3:
-        r1 = recommended[len(recommended)-1]
-        r2 = recommended[len(recommended)-2:len(recommended)-4]
-    else:
-        r1 = recommended[:1]
-        r2 = recommended[1:]
-        
+    recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
+    r1 = recommended[:1]
+    r2 = recommended[1:]
+
     trending = allPosts.order_by('-view')[:3]
-    context = {'allPosts': allPosts, 'latest1': latest1, 'latest2': latest2, 'latest3': latest3, 'recommended': recommended, 'r1': r1, 'r2': r2, 'trending': trending}
+    t1 = trending[:2]
+    t2 = trending[2:]
+
+    context = {'allPosts': allPosts, 'latest': latest, 'recommended': recommended, 'r1': r1, 'r2': r2, 'trending': trending, 't1': t1, 't2': t2,}
     return render(request, "Home/home.html", context)
 
 def registerPage(request):
@@ -181,7 +173,7 @@ def blog(request, pk):
         liked = True
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    trending = allPosts.order_by('-view')[:4]
+    trending = allPosts.order_by('-view')[:3]
     context = {'post': post, 'comments': comments, 'liked': liked, 'trending': trending, 'recommended': recommended}
     return render(request, "Blog/article.html", context)
 
