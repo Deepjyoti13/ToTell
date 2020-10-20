@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row mx-3 my-3">
+        <a href="{% url 'sneakpeek' %}">
+            <h5 class="{% block sneakpeekactive %} {% endblock sneakpeekactive %} text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">SNEAK-PEAK
+            </h5>
+        </a>
+        <a href="{% url 'events' %}">
+            <h5 class="{% block eventactive %} {% endblock eventactive %} text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400; background: rgba(0, 204, 255, 0.1);">
+                EVENTS
+            </h5>
+        </a>
+        <a href="{% url 'lifestyle' %}">
+            <h5 class="{% block lifestyleactive %}{% endblock lifestyleactive %} text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400; background: rgba(0, 204, 255, 0.1);">
+                LIFESTYLE
+            </h5>
+        </a>
+        <a href="{% url 'trends' %}">
+            <h5 class="{% block trendsactive %} {% endblock trendsactive %} text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">
+                TRENDS
+            </h5>
+        </a>
+        <a href="{% url 'sciencetech' %}">
+            <h5 class="{% block techactive %} {% endblock techactive %} text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">
+                TECHNOLOGY
+            </h5>
+        </a>
+    </div>
+</div>

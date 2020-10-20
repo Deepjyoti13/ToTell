@@ -109,13 +109,9 @@ def writewithus(request):
 
 def sneakpeek(request):
     sneakpeek = Post.objects.filter(approve=True, blogType='Sneak Peek')
-    if len(sneakpeek) > 0:
-        s1 = sneakpeek[len(sneakpeek)-1]
-    else:
-        s1 = sneakpeek[0:1]
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'sneakpeek': sneakpeek, 's1': s1, 'recommended': recommended}
+    context = {'sneakpeek': sneakpeek, 'recommended': recommended}
     return render(request, "Blog/sneakpeek.html", context)
 
 def lifestyle(request):

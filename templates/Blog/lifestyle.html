@@ -1,35 +1,61 @@
-{% extends 'Blog/category.html' %}
-{% block lifestyleactive %} active {% endblock %}
-{% block link %}{% url 'lifestyle' %}{% endblock %}
-{% block bread %}LIFESTYLE{% endblock %}
-{% block heading %}LIFESTYLE{% endblock %}
-{% block feat %}LIFESTYLE{% endblock %}
-{% block feattrend %}
-{% if l1 %}
-    <div class="card text-center" id="trendcards" style="background: url({{l1.cover.url}});">
-        <a href="{% url 'blog' l1.id %}">
-            <div class="card-body " id="big">
-                <p class="h2">{{l1.title}}</p>
-                <p>{{l1.time}} minute read</p>
-            </div>
+{% extends 'Blog/x.html' %}
+{% block category %}
+<div class="container">
+    <div class="row mx-3 my-3">
+        <a href="{% url 'sneakpeek' %}">
+            <h5 class="text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">SNEAK-PEAK
+            </h5>
+        </a>
+        <a href="{% url 'events' %}">
+            <h5 class="text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400; background: rgba(0, 204, 255, 0.1);">
+                EVENTS
+            </h5>
+        </a>
+        <a href="{% url 'lifestyle' %}">
+            <h5 class="bg-dark text-light p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400; background: rgba(0, 204, 255, 0.1);">
+                LIFESTYLE
+            </h5>
+        </a>
+        <a href="{% url 'trends' %}">
+            <h5 class="text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">
+                TRENDS
+            </h5>
+        </a>
+        <a href="{% url 'sciencetech' %}">
+            <h5 class="text-dark p-1 px-3 rounded-pill mx-2"
+                style="font-weight: 400;background: rgba(0, 204, 255, 0.1);">
+                TECHNOLOGY
+            </h5>
         </a>
     </div>
-{% else %}
-    <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
-{% endif %}
-
+</div>
 {% endblock %}
+{% block bread %}LIFESTYLE{% endblock %}
+
 {% block trendcards %}
-{% for ls in lifestyle %}
-<div class="col-md-3">
-    <a href="{% url 'blog' ls.id %}">
-        <div class="card text-center" id="trendcards" style="background: url({{ls.cover.url}});">
-            <div class="" id="z">
-                <p class="h2">{{ls.title}}</p>
-                <p>{{ls.time}} minute read</p>
-            </div>
+{% if lifestyle.length < 1 %}
+<h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+{% endif %}
+{% for lifestyle in lifestyle %}
+<div class="col-md-3 card my-2 mx-3 p-0"
+    style="width: 100%;box-shadow: none;background: url({{ lifestyle.cover.url }}); background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+    <div
+        style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
+        <div class="card-body">
+            <a href="{% url 'blog' lifestyle.id %}">
+                <h6 class="card-title text-white" style="font-weight: 600;">{{ lifestyle.title }}</h6>
+            </a>
+            <h6 class="card-subtitle mb-2 text-light">{{ lifestyle.post_writer }}</h6>
+            <a href="{% url 'blog' lifestyle.id %}" class="card-link">Read</a>
+            <br>
+            <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">{{ lifestyle.time }} minutes
+                read</a>
         </div>
-    </a>
+    </div>
 </div>
 {% endfor %}
 {% endblock %}
