@@ -58,14 +58,7 @@
 {% endblock %}
 {% block body %}
 <!--Navbar -->
-<div class="container text-center">
-  <form class="form-inline active-cyan-4 row w-md-75 mx-3 ">
-    <input class="col form-control form-control-sm mr-3 p-3 rounded-pill"
-      style="border-right: solid 5px rgb(1, 183, 255);border-left: solid 5px rgb(1, 183, 255);" type="text"
-      placeholder="Search" aria-label="Search">
-    <i class="fas fa-search text-white bg-dark py-2 px-4  rounded-pill" aria-hidden="true"></i>
-  </form>
-</div>
+{% include 'Blog/searchQuery.html' %}
 <div class="container mt-4 mb-4">
   <div class="row">
     <div class="col-md-9">

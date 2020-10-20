@@ -2,14 +2,7 @@
 {% load static %}
 {% block body %}
 <!-- Search  -->
-<div class="container text-center">
-    <form class="form-inline active-cyan-4 row w-md-75 mx-3 ">
-        <input class="col form-control form-control-sm mr-3 p-3 rounded-pill"
-            style="border-right: solid 5px rgb(1, 183, 255);border-left: solid 5px rgb(1, 183, 255);" type="text"
-            placeholder="Search" aria-label="Search">
-        <i class="fas fa-search text-white bg-dark py-2 px-4  rounded-pill" aria-hidden="true"></i>
-    </form>
-</div>
+{% include 'Blog/searchQuery.html' %}
 <!-- Category Selection -->
 <div class="container">
     <div class="row mx-3 my-3">
@@ -153,7 +146,9 @@
                 <div
                     style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.698) 0%, rgba(123, 0, 211, 0.7) 60%);border-radius: 15px;">
                     <div class="p-3">
-                        <h4 style="font-weight: 500;">{{ t1.title }}</h4>
+                        <a href="{% url 'blog' t1.id %}" style="color: white;">
+                            <h4 style="font-weight: 500;">{{ t1.title }}</h4>
+                        </a>
                         <h5>{{ t1.post_writer }}</h5>
                     </div>
                 </div>
@@ -167,7 +162,9 @@
                 <div
                     style="background: linear-gradient(90deg, rgba(0, 0, 0, 0.698) 0%, rgba(123, 0, 211, 0.7) 60%);height: 100%;border-radius: 15px;">
                     <div class="p-3">
-                        <h4 style="font-weight: 500;">{{ t2.title }}</h4>
+                        <a href="{% url 'blog' t2.id %}" style="color: white;">
+                            <h4 style="font-weight: 500;">{{ t2.title }}</h4>
+                        </a>
                         <h5>{{ t2.post_writer }}</h5>
                     </div>
                 </div>
