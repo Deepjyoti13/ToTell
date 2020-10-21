@@ -10,6 +10,14 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ["username", "email", "password1", "password2"]
 
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+        self.fields["username"].widget.attrs = {"class": "form-control mb-3 mr-3", "placeholder": "Username"}
+        self.fields["email"].widget.attrs = {"class": "form-control mb-3 mr-3", "placeholder": "Email"}
+        self.fields["password1"].widget.attrs = {"class": "form-control mb-3 mr-3", "placeholder": "Enter Password"}
+        self.fields["password2"].widget.attrs = {"class": "form-control mb-3 mr-3", "placeholder": "Confirm Password"}
+        
+
 
 class WriterForm(ModelForm):
     class Meta:
