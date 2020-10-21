@@ -1,70 +1,81 @@
 {% extends 'Blog/base.html' %}
-{% load static %}
 {% block body %}
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,100&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="{% static 'css/profile.css' %}">
-<header>
-    <div class="container">
-        <div class="profile">
-            <div class="profile-image">
-                <img class="prof-pic" src="{{writer.profile_pic.url}}" alt="">
-            </div>
-            <div class="profile-user-settings">
-                <h1 class="profile-user-name" style="">{{writer.user.username}}</h1>
-            </div>
-            <div class="profile-stats">
-                <ul>
-                    {% if writer.facebook %}
-                    <li><a href="{{writer.facebook}}"><span class="profile-stat-count"><img id="profile_icon"
-                                    src="{% static 'img/icons8-facebook.svg' %}" alt=""></span></a></li>
-                    {% endif %}
-                    {% if writer.instagram %}
-                    <li><a href="{{writer.instagram}}"><span class="profile-stat-count"><img id="profile_icon"
-                                    src="{% static 'img/icons8-instagram.svg' %}" alt=""></span></a></li>
-                    {% endif %}
-                    {% if writer.linkedin %}
-                    <li><a href="{{writer.linkedin}}"><span class="profile-stat-count"><img id="profile_icon"
-                                    src="{% static 'img/icons8-linkedin.svg' %}" alt=""></span></a></li>
-                    {% endif %}
-                </ul>
-
-            </div>
-
-            <div class="profile-bio">
-                <p class="bio">{{writer.bio}}</p>
-                <p class="address">{{writer.locality}}, {{writer.state}}, {{writer.country}}</p>
-
-            </div>
-
+<div class="container mt-4 mb-2">
+    <!-- Username  -->
+    <div class="row mb-2">
+        <div class="col-md-9">
+            <h5>Profile</h5>
+            <h1 style="font-weight: 800;">
+                {{writer.user.username}}
+            </h1>
         </div>
-        <!-- End of profile section -->
-
     </div>
-    <!-- End of container -->
-
-</header>
-<hr class="mr-5 ml-5">
-
-<div class="container">
+    <!-- Profile photo -->
+    <div class="col-md-3 p-0 m-0 mb-2">
+        <img class="p-0 m-0"
+            style="width: 120px;height: 120px;object-fit: cover;object-position: center;border-radius: 20px;"
+            src="{{writer.profile_pic.url}}" alt="">
+    </div>
+    <!-- Social links  -->
+    <div class="my-2">
+        {% if writer.facebook %}
+        <a href="{{ writer.facebook }}">
+            <i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if writer.instagram %}
+        <a href="{{ writer.instagram }}">
+            <i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if writer.linkedin %}
+        <a href="{{ writer.linkedin }}">
+            <i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+    </div>
+    <!-- Bio  -->
+    <div class="col-md-9 p-0 m-0">
+        <h5>
+            {{writer.bio}}
+        </h5>
+        <h6>
+            {{writer.locality}}, {{writer.state}}, {{writer.country}}
+        </h6>
+    </div>
+</div>
+<!-- Posts  -->
+<div class="container mt-4 mb-4">
     <div class="row">
-        {% for post in posts %}
-        <div class="col-md-4">
-            <a href="{% url 'blog' post.id %}">
-                <div class="card-text-center">
-                    <div class="card p-2" style="background: url({{ post.cover.url }});
-                    background-size: cover; height: 30vh;">
-                        <div>
-                            <h3 style="color: white;">{{post.title}}</h3>
-                        </div>
+        <div class="col-md-9">
+            <h3 style="font-weight: 800;">
+                All Articles
+            </h3>
+        </div>
+    </div>
+    <!-- Article  -->
+    <div class=" ">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-3 card my-2 mx-3 p-0"
+                style="width: 100%;box-shadow: none;background: url({{ post.cover.url }}); background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">
+                <div
+                    style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
+                    <div class="card-body">
+                        <a href="{% url 'blog' post.id %}">
+
+                            <h6 class="card-title text-white" style="font-weight: 600;">{{post.title}}</h6>
+                        </a>
+                        <h6 class="card-subtitle mb-2 text-light">{{ post.blogType }}</h6>
+                        <a href="{% url 'blog' post.id %}" class="card-link">Read</a>
+                        <br>
+                        <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">{{ post.time }} minutes
+                            read</a>
                     </div>
                 </div>
-            </a>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-    <!-- End of gallery -->
 </div>
-
-{% endblock body %}
+{% endblock %}
