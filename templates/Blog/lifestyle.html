@@ -37,7 +37,7 @@
 {% block bread %}LIFESTYLE{% endblock %}
 
 {% block trendcards %}
-{% if lifestyle.length < 1 %}
+{% if ls == 0 %}
 <h2>No article has been posted on this topic yet. Stay Tuned!</h2>
 {% endif %}
 {% for lifestyle in lifestyle %}

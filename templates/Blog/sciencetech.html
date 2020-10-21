@@ -34,10 +34,12 @@
     </div>
 </div>
 {% endblock %}
-{% block sciencetechactive %} bg-dark {% endblock %}
 {% block bread %}SCIENCE & TECHNOLOGY{% endblock %}
 
 {% block trendcards %}
+{% if st == 0 %}
+<h2>No article has been posted on this topic yet. Stay Tuned!</h2>
+{% endif %}
 {% for scitech in scitech %}
 <div class="col-md-3 card my-2 mx-3 p-0"
     style="width: 100%;box-shadow: none;background: url({{ scitech.cover.url }}); background-position: center; border-radius: 25px;border-right: solid 5px rgb(156, 36, 255);border-left: solid 5px rgb(156, 36, 255);">

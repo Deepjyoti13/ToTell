@@ -109,54 +109,42 @@ def writewithus(request):
 
 def sneakpeek(request):
     sneakpeek = Post.objects.filter(approve=True, blogType='Sneak Peek')
+    sp = len(sneakpeek)
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'sneakpeek': sneakpeek, 'recommended': recommended}
+    context = {'sneakpeek': sneakpeek, 'recommended': recommended, 'sp': sp}
     return render(request, "Blog/sneakpeek.html", context)
 
 def lifestyle(request):
     lifestyle = Post.objects.filter(approve=True, blogType='Lifestyle')
-    if len(lifestyle) > 0:
-        l1 = lifestyle[len(lifestyle)-1]
-    else:
-        l1 = lifestyle[0:1]
+    ls = len(lifestyle)
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'lifestyle': lifestyle, 'l1': l1, 'recommended': recommended}
+    context = {'lifestyle': lifestyle, 'ls': ls, 'recommended': recommended}
     return render(request, "Blog/lifestyle.html", context)
 
 def events(request):
     events = Post.objects.filter(approve=True, blogType='Events')
-    if len(events) > 0:
-        e1 = events[len(events)-1]
-    else:
-        e1 = events[0:1]
+    ev = len(events)
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'events': events, 'e1': e1, 'recommended': recommended}
+    context = {'events': events, 'ev': ev, 'recommended': recommended}
     return render(request, "Blog/events.html", context)
 
 def trends(request):
     trends = Post.objects.filter(approve=True, blogType='Trends')
-    if len(trends) > 0:
-        t1 = trends[len(trends)-1]
-    else:
-        t1 = trends[0:1]
+    tr = len(trends)
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'trends': trends, 't1': t1, 'recommended': recommended}
+    context = {'trends': trends, 'tr': tr, 'recommended': recommended}
     return render(request, "Blog/trends.html", context)
 
 def sciencetech(request):
-    scitech = Post.objects.filter(
-        approve=True, blogType='Science & Technology')
-    if len(scitech) > 0:
-        t1 = scitech[len(scitech)-1]
-    else:
-        t1 = scitech[0:1]
+    scitech = Post.objects.filter(approve=True, blogType='Science & Technology')
+    st = len(scitech)
     allPosts = Post.objects.filter(approve=True)
     recommended = allPosts.filter(recommend=True).order_by('-id')[:3]
-    context = {'scitech': scitech, 't1': t1, 'recommended': recommended}
+    context = {'scitech': scitech, 'st': st, 'recommended': recommended}
     return render(request, "Blog/sciencetech.html", context)
 
 def blog(request, pk):
