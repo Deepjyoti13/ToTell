@@ -250,11 +250,11 @@
           <div
               style="background: linear-gradient(180deg, rgba(29,0,77,0.5609594179468662) 0%, rgba(30,0,46,0.7570378493194152) 50%);border-radius: 25px;">
               <div class="card-body">
-                  <a href="#">
+                  <a href="{% url 'blog' trending.id %}">
                       <h6 class="card-title text-white" style="font-weight: 600;">{{ trending.title }}</h6>
                   </a>
                   <h6 class="card-subtitle mb-2 text-light">{{ trending.blogType }}</h6>
-                  <a href="{% url 'blog' trending.id }" class="card-link">Read</a>
+                  <a href="{% url 'blog' trending.id %}" class="card-link">Read</a>
                   <br>
                   <a class="card-link px-2 rounded-pill text-dark bg-white " id="minright">{{ trending.time }} minutes read | {{ trending.view.count }} views</a>
               </div>
