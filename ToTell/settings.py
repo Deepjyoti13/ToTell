@@ -136,6 +136,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bandeve.dad@gmail.com'
-EMAIL_HOST_PASSWORD = 'bandeve.django'
+EMAIL_HOST_USER = 'expresstotell@gmail.com'
+EMAIL_HOST_PASSWORD = 'fovmubzevnkthbhr'
 
+# EMAIL_ACTIVE_FIELD = "is_active"
+# EMAIL_SERVER = 'smtp.gmail.com'
+# EMAIL_ADDRESS = 'bandeve.dad@gmail.com'
+# EMAIL_FROM_ADDRESS = 'bandeve.dad@gmail.com'
+# EMAIL_MAIL_SUBJECT =    'Confirm your email'
+# EMAIL_MAIL_HTML = 'mail_body.html'
+# EMAIL_MAIL_PLAIN = 'mail_body.txt'
+# EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
+# EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'
