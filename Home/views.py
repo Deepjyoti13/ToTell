@@ -38,3 +38,6 @@ def postComment(request):
     else:
         return redirect("login")
     return redirect(f"/blog/{post.id}")
+
+def aboutus(request):
+    return render(request, 'Home/aboutus.html')

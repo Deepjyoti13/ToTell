@@ -235,3 +235,8 @@ def search(request):
     recommended = allrec.filter(recommend=True).order_by('-id')[:3]
     params = {'allPosts': allPosts, 'query': query, 'recommended': recommended}
     return render(request, 'Blog/search.html', params)
+
+def whoweare(request):
+    editors = User.objects.filter(groups__name='Editors')
+    context = {"editors": editors}
+    return render(request, 'Home/whoweare.html', context)

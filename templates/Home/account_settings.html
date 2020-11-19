@@ -55,14 +55,7 @@
                   <div class="tab-pane active">
                     <form class="form" method="POST" enctype="multipart/form-data">
                       {% csrf_token %}
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Email</label>
-                            {{ form.email }}
-                          </div>
-                        </div>
-                      </div>
+                      {{ form.email.as_hidden }}
                       <div class="row">
                         <div class="col">
                           <div class="row">
@@ -74,7 +67,7 @@
                             </div>
                             <div class="col">
                               <div class="form-group">
-                                <label>State/Province/UT</label>
+                                <label>State/Territory</label>
                                 {{ form.state}}
                               </div>
                             </div>

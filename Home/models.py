@@ -22,3 +22,11 @@ class BlogComment(models.Model):
 
     def __str__(self):
         return self.comment[:15] + '... by ' + self.user.username
+
+class Advertisements(models.Model):
+    company = models.CharField(max_length=30, null=True)
+    photo = models.ImageField(upload_to="Ads")
+    tagline = models.TextField(null=True)
+
+    def __str__(self):
+        return 'Ad by ' + self.company

@@ -35,4 +35,5 @@ urlpatterns = [
         ),
         name="password_reset_complete",
     ),
+    path('aboutus', views.aboutus, name="aboutus"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
