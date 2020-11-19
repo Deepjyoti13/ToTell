@@ -1,12 +1,22 @@
+from django.http import request
 from django.shortcuts import render, redirect, HttpResponse
 from Blog.models import *
 from Blog.forms import *
 from django.contrib import messages
 from django.contrib.auth.models import User, auth, Group
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login, logout
 
-@login_required(login_url='manager_login')
+
+def check_access(user):
+    return (
+        user.groups.filter(name="Editors").exists()
+        | user.groups.filter(name="Admins").exists()
+    )
+
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def home(request):
 
     # new post
@@ -38,7 +48,9 @@ def home(request):
     }
     return render(request, "manager/index.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def view_all(request):
     post = Post.objects.filter(approve=False, declined=False)
     context = {
@@ -46,7 +58,9 @@ def view_all(request):
     }
     return render(request, "manager/view_all.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def view_all_posts(request):
     post = Post.objects.filter(approve=True, recommend=False)
     recommend = Post.objects.filter(approve=True, recommend=True)
@@ -56,7 +70,9 @@ def view_all_posts(request):
     }
     return render(request, "manager/view_all_recommended.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def recommend(request, pk):
     post = Post.objects.get(id=pk)
     context = {
@@ -64,7 +80,9 @@ def recommend(request, pk):
     }
     return render(request, "manager/recommend.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def unrecommend(request, pk):
     post = Post.objects.get(id=pk)
     context = {
@@ -72,7 +90,9 @@ def unrecommend(request, pk):
     }
     return render(request, "manager/unrecommend.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def preview(request, pk):
     post = Post.objects.get(id=pk)
     context = {
@@ -80,7 +100,9 @@ def preview(request, pk):
     }
     return render(request, "manager/article.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def view(request, pk):
     post = Post.objects.get(id=pk)
     context = {
@@ -88,7 +110,9 @@ def view(request, pk):
     }
     return render(request, "manager/view.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def approve(request, pk):
     post = Post.objects.get(id=pk)
     post.approve = True
@@ -96,7 +120,9 @@ def approve(request, pk):
     messages.info(request, "approved")
     return redirect("manager_home")
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def untick(request, pk):
     post = Post.objects.get(id=pk)
     post.recommend = False
@@ -104,7 +130,9 @@ def untick(request, pk):
     messages.info(request, "done")
     return redirect("view_all_posts")
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def recommend_approved(request, pk):
     recommended = Post.objects.filter(recommend=True)
     if len(recommended) >= 3:
@@ -116,14 +144,18 @@ def recommend_approved(request, pk):
     messages.info(request, "recommend approved")
     return redirect("view_all_posts")
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def delete(request, pk):
     post = Post.objects.get(id=pk)
     post.delete()
     messages.info(request, "Successfully deleted")
     return redirect("manager_home")
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def declined(request, pk):
     post = Post.objects.get(id=pk)
     post.declined = True
@@ -131,24 +163,32 @@ def declined(request, pk):
     messages.info(request, "declined")
     return redirect("manager_home")
 
+
 def manager_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
 
         user = authenticate(request, username=username, password=password)
-        
-        if user is not None and user.groups.filter(name = "Editors").exists():
+
+        if user is not None and (
+            user.groups.filter(name="Editors").exists()
+            | user.groups.filter(name="Admins").exists()
+        ):
             login(request, user)
-            return redirect('manager_home')
+            return redirect("manager_home")
         else:
-            messages.info(request, 'Username OR password is incorrect')
-            return redirect('manager_login')
+            messages.info(request, "Username OR password is incorrect")
+            return redirect("manager_login")
 
     context = {}
-    return render(request, 'Home/login.html', context)
+    return render(request, "Home/login.html", context)
 
-@login_required(login_url='manager_login')
+
+@login_required(login_url="manager_login")
+@user_passes_test(check_access, login_url="manager_login")
 def manager_logout(request):
     logout(request)
-    return redirect('manager_login')
+    return redirect("manager_login")
+
