@@ -28,6 +28,7 @@ class WriterForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(WriterForm, self).__init__(*args, **kwargs)
         self.fields["email"].widget.attrs = {"class": "form-control mb-3 mr-3"}
+        self.fields["fullname"].widget.attrs = {"class": "form-control mb-3 mr-3"}
         self.fields["bio"].widget.attrs = {
             "class": "form-control mb-3 mr-3",
             "required": True,

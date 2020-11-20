@@ -81,7 +81,7 @@
               src="{{ post.post_writer.profile_pic.url }}" alt="">
           </div>
           <div class=" my-auto px-2">
-            <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer }}</h5>
+            <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer.fullname }}</h5><h6>@{{ post.post_writer }}</h6>
             <h6 class="card-title my-0" style="font-weight: 400;">{{ post.timestamp|date }}</h6>
           </div>
         </div>
@@ -202,13 +202,15 @@
                     alt="">
             </div>
             <div class=" my-auto px-2">
-                <h5 class="card-title my-0" style="font-weight: 500;">{{comment.user.username}}</h5>
+                <h5 class="card-title my-0" style="font-weight: 500;">{{comment.user.writer.fullname}}</h5><h6>@{{ comment.user.username }}</h6>
                 <h6 class="card-title my-0" style="font-weight: 400;">{{comment.timestamp}}</h6>
             </div>
-        </div>
-        <div>
+          </div>
+          <div>
             <p style="color: #747373;font-weight: 400;font-size: .9rem;">{{comment.comment}}</p>
-        </div>
+          </div>
+          <a href="{% url 'profile' comment.user.writer.id %}" target="_blank"
+          class="rounded-pill bg-primary px-2 text-white border-red ">Stalk</a>
     </div>
     <div class="my-2"></div>
         {% endfor %}
@@ -223,7 +225,7 @@
                 src="{{ post.post_writer.profile_pic.url }}" alt="">
             </div>
             <div class=" my-auto px-2">
-              <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer }}</h5>
+              <h5 class="card-title my-0" style="font-weight: 500;">{{ post.post_writer.fullname }}</h5><h6>@{{ post.post_writer }}</h6>
               <h6 class="card-title my-0" style="font-weight: 400;">{{ post.timestamp|date }}</h6>
             </div>
           </div>

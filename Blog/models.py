@@ -12,6 +12,7 @@ from tinymce import models as tinymce_models
 
 class Writer(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=40, null=True, blank=True)
     email = models.EmailField(unique=True)
     profile_pic = models.ImageField(
         default="Bloggers/profile.png", upload_to="Bloggers"
