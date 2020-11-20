@@ -4,12 +4,11 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/" style="color: black;">Home</a></li>
-            <li class="breadcrumb-item"><a href="" style="color: black;">Know who we are</a></li>
+            <li class="breadcrumb-item"><a href="" style="color: black;">Know Who We Are</a></li>
         </ol>
     </nav>
 </div>
-<!--ARTICAL Start-->
-<!--writer 1-->
+
 <section>
     <div class="container mt-3">
         <h3 class="display-5" id="A-heading" style="font-weight: 500; font-size: 2em;">
@@ -45,21 +44,21 @@
                     </p>
                 </div>
 
-                <div class="dropdown rounded-pill m-auto mb-3">
+                <div class="dropdown rounded-pill m-auto mb-3 ">
                     <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill mb-4" type="button" id="dropdownMenu1"
+                    <button class="btn btn-dark dropdown-toggle rounded-pill" type="button" id="dropdownMenu1"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</button>
 
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-                        {% if editors.facebook %}
-                        <a class="dropdown-item pcon" href="{{ editors.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% if editors.writer.facebook %}
+                        <a class="dropdown-item pcon" href="{{ editors.writer.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
                         {% endif %}
-                        {% if editors.instagram %}
-                        <a class="dropdown-item pcon" href="{{ editors.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% if editors.writer.instagram %}
+                        <a class="dropdown-item pcon" href="{{ editors.writer.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
                         {% endif %}
-                        {% if editors.linkedin %}
-                        <a class="dropdown-item pcon" href="{{ editors.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% if editors.writer.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ editors.writer.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
                         {% endif %}
 
                     </div>
@@ -112,14 +111,14 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</button>
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-                        {% if technical.facebook %}
-                        <a class="dropdown-item pcon" href="{{ technical.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% if technical.writer.facebook %}
+                        <a class="dropdown-item pcon" href="{{ technical.writer.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
                         {% endif %}
-                        {% if technical.instagram %}
-                        <a class="dropdown-item pcon" href="{{ technical.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% if technical.writer.instagram %}
+                        <a class="dropdown-item pcon" href="{{ technical.writer.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
                         {% endif %}
-                        {% if technical.linkedin %}
-                        <a class="dropdown-item pcon" href="{{ technical.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% if technical.writer.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ technical.writer.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
                         {% endif %}
                     </div>
                 </div>
@@ -173,14 +172,14 @@
 
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-                        {% if social.facebook %}
-                        <a class="dropdown-item pcon" href="{{ social.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% if social.writer.facebook %}
+                        <a class="dropdown-item pcon" href="{{ social.writer.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
                         {% endif %}
-                        {% if social.instagram %}
-                        <a class="dropdown-item pcon" href="{{ social.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% if social.writer.instagram %}
+                        <a class="dropdown-item pcon" href="{{ social.writer.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
                         {% endif %}
-                        {% if social.linkedin %}
-                        <a class="dropdown-item pcon" href="{{ social.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% if social.writer.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ social.writer.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
                         {% endif %}
 
                     </div>
