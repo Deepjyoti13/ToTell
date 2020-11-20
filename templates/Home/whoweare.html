@@ -20,244 +20,57 @@
 </section>
 <div class="container">
     <div class="row">
+        {% for editors in editors %}
         <div class="col-md-3 mt-3 mb-3">
             <!-- Card -->
-            <div class="card testimonial-card"
+            <div class="card testimonial-card h-100"
                 style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
                 <!-- Background color -->
                 <div class="card-up indigo lighten-1"></div>
 
                 <!-- Avatar -->
                 <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
+                    <img src="{{ editors.writer.profile_pic.url }}"
                         class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
                 </div>
 
                 <!-- Content -->
                 <div class="ml-4">
                     <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
+                    <h4 class="card-title">{{ editors.username }}</h4>
 
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
+                    <p style="font-weight: 700;color: rgb(105, 105, 105);">
                     </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
+                    <p>{{ editors.writer.bio }}
                     </p>
                 </div>
 
                 <div class="dropdown rounded-pill m-auto mb-3">
-
                     <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
+                    <button class="btn btn-dark dropdown-toggle rounded-pill mb-4" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</button>
 
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
+                        {% if editors.facebook %}
+                        <a class="dropdown-item pcon" href="{{ editors.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% endif %}
+                        {% if editors.instagram %}
+                        <a class="dropdown-item pcon" href="{{ editors.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% endif %}
+                        {% if editors.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ editors.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% endif %}
 
                     </div>
                 </div>
             </div>
             <!-- Card -->
         </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-
-
+        {% endfor %}
     </div>
 </div>
+{% if technical.count %}
 <section>
     <div class="container mt-3">
         <h3 class="display-5" id="A-heading" style="font-weight: 500; font-size: 2em;">
@@ -266,248 +79,57 @@
         <hr />
     </div>
 </section>
+{% endif %}
 <div class="container">
     <div class="row">
-
+        {% for technical in technical %}
         <div class="col-md-3 mt-3 mb-3">
             <!-- Card -->
-            <div class="card testimonial-card"
+            <div class="card testimonial-card h-100"
                 style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
                 <!-- Background color -->
                 <div class="card-up indigo lighten-1"></div>
 
                 <!-- Avatar -->
                 <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
+                    <img src="{{ technical.writer.profile_pic.url }}"
                         class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
                 </div>
 
                 <!-- Content -->
                 <div class="ml-4">
                     <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
+                    <h4 class="card-title">{{ technical.username }}</h4>
 
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
+                    <p style="font-weight: 700;color: rgb(105, 105, 105);">
                     </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
+                    <p>{{ technical.writer.bio }}
                     </p>
                 </div>
-
                 <div class="dropdown rounded-pill m-auto mb-3">
-
                     <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
+                    <button class="btn btn-dark dropdown-toggle rounded-pill mb-4" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</button>
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
+                        {% if technical.facebook %}
+                        <a class="dropdown-item pcon" href="{{ technical.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% endif %}
+                        {% if technical.instagram %}
+                        <a class="dropdown-item pcon" href="{{ technical.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% endif %}
+                        {% if technical.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ technical.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-
-
+        </div>  
+        {% endfor %}
     </div>
 </div>
+{% if social.count %}
 <section>
     <div class="container mt-3">
         <h3 class="display-5" id="A-heading" style="font-weight: 500; font-size: 2em;">
@@ -516,243 +138,57 @@
         <hr />
     </div>
 </section>
+{% endif %}
 <div class="container">
     <div class="row">
-
+        {% for social in social %}
         <div class="col-md-3 mt-3 mb-3">
             <!-- Card -->
-            <div class="card testimonial-card"
+            <div class="card testimonial-card h-100"
                 style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
                 <!-- Background color -->
                 <div class="card-up indigo lighten-1"></div>
 
                 <!-- Avatar -->
                 <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
+                    <img src="{{ social.writer.profile_pic.url }}"
                         class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
                 </div>
 
                 <!-- Content -->
                 <div class="ml-4">
                     <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
+                    <h4 class="card-title">{{ social.username }}</h4>
 
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
+                    <p style="font-weight: 700;color: rgb(105, 105, 105);">
                     </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
+                    <p>{{ social.writer.bio }}
                     </p>
                 </div>
 
                 <div class="dropdown rounded-pill m-auto mb-3">
-
                     <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
+                    <button class="btn btn-dark dropdown-toggle rounded-pill mb-4" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</button>
 
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
+                        {% if social.facebook %}
+                        <a class="dropdown-item pcon" href="{{ social.facebook }}"><i class="fab fa-facebook fa-2x m-2 text-primary" aria-hidden="true"></i>Like</a>
+                        {% endif %}
+                        {% if social.instagram %}
+                        <a class="dropdown-item pcon" href="{{ social.instagram }}"><i class="fab fa-instagram fa-2x m-2 text-danger" aria-hidden="true"></i>Follow</a>
+                        {% endif %}
+                        {% if social.linkedin %}
+                        <a class="dropdown-item pcon" href="{{ social.linkedin }}"><i class="fab fa-linkedin fa-2x m-2 text-info" aria-hidden="true"></i>Connect</a>
+                        {% endif %}
 
                     </div>
                 </div>
             </div>
             <!-- Card -->
         </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
-        <div class="col-md-3 mt-3 mb-3">
-            <!-- Card -->
-            <div class="card testimonial-card"
-                style="background: rgba(233, 233, 233, 0);box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.199);">
-
-                <!-- Background color -->
-                <div class="card-up indigo lighten-1"></div>
-
-                <!-- Avatar -->
-                <div class="avatar mx-auto white">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                        class="rounded-circle p-4" alt="woman avatar" style="width: 100%;">
-                </div>
-
-                <!-- Content -->
-                <div class="ml-4">
-                    <!-- Name -->
-                    <h4 class="card-title">Anna Doe</h4>
-
-                    <p style="font-weight: 700;color: rgb(105, 105, 105);">Developer
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci
-                    </p>
-                </div>
-
-                <div class="dropdown rounded-pill m-auto mb-3">
-
-                    <!--Trigger-->
-                    <button class="btn btn-dark dropdown-toggle rounded-pill " type="button" id="dropdownMenu1"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connect</button>
-
-                    <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary">
-
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-facebook.svg"
-                                alt=""> Like</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-instagram.svg"
-                                alt=""> follow</a>
-                        <a class="dropdown-item pcon" href="#"><img id="socialicon" src="./img/icons8-linkedin.svg"
-                                alt=""> Connect</a>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Card -->
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

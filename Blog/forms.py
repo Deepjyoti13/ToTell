@@ -35,11 +35,11 @@ class WriterForm(ModelForm):
         self.fields["locality"].widget.attrs = {"class": "form-control mb-3 mr-3"}
         self.fields["state"].widget.attrs = {"class": "form-control mb-3 mr-3"}
         self.fields["country"].widget.attrs = {"class": "form-control mb-3 mr-3"}
-        self.fields["facebook"].widget.attrs = {"class": "form-control mb-3 mr-3"}
-        self.fields["linkedin"].widget.attrs = {"class": "form-control mb-3 mr-3"}
+        self.fields["facebook"].widget.attrs = {"class": "form-control mb-3 mr-3", "required": False,}
+        self.fields["linkedin"].widget.attrs = {"class": "form-control mb-3 mr-3", "required": False,}
         self.fields["instagram"].widget.attrs = {
             "class": "form-control mb-3 mr-3",
-            "required": True,
+            "required": False,
         }
 
 

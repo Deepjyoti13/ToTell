@@ -238,5 +238,8 @@ def search(request):
 
 def whoweare(request):
     editors = User.objects.filter(groups__name='Editors')
-    context = {"editors": editors}
+    technical = User.objects.filter(groups__name='Technical')
+    social = User.objects.filter(groups__name='Social Media')
+    print(editors)
+    context = {"editors": editors, "technical": technical, "social": social}
     return render(request, 'Home/whoweare.html', context)
