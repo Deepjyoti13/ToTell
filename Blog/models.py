@@ -16,6 +16,7 @@ class Writer(models.Model):
     profile_pic = models.ImageField(
         default="Bloggers/profile.png", upload_to="Bloggers"
     )
+    designation = models.CharField(max_length=20, null=True, blank=True, default="Writer")
     bio = models.TextField()
     locality = models.CharField(max_length=25)
     state = models.CharField(max_length=25)

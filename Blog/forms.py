@@ -23,7 +23,7 @@ class WriterForm(ModelForm):
     class Meta:
         model = Writer
         fields = "__all__"
-        exclude = ["user"]
+        exclude = ["user", "designation"]
 
     def __init__(self, *args, **kwargs):
         super(WriterForm, self).__init__(*args, **kwargs)
