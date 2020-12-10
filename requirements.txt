@@ -27,3 +27,4 @@ sqlparse==0.3.1
 urllib3==1.25.8
 whitenoise==5.0.1
 django-utils-six
+psycopg2==2.8.5
